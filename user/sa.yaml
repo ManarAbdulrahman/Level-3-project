@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: docker-hub
+  namespace: test
+secrets:
+  - name: regcred
