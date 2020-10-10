@@ -6,7 +6,7 @@ metadata:
 spec:
   resources:
     inputs:
-    - name: sock-user
+    - name: Level-3-project
       type: git
   params:
   - name: IMAGE

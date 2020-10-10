@@ -9,4 +9,4 @@ spec:
     - name: revision
       value: test 
     - name: url
-      value: https://github.com/ManarAbdulrahman/Level-3-project
+      value: https://github.com/ManarAbdulrahman/Level-3-project.git

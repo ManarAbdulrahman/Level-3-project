@@ -11,6 +11,6 @@ spec:
     value: "manarabdulrahman/sock-user"
   resources:
     inputs:
-    - name: sock-user
+    - name: Level-3-project 
       resourceRef:
-        name: sock-user
+        name: Level-3-project 
