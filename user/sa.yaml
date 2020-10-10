@@ -5,4 +5,4 @@ metadata:
   name: docker-hub
   namespace: test
 secrets:
-  - name: regcred
+  - name: docker-hub
