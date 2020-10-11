@@ -3,7 +3,7 @@ kind: TaskRun
 metadata:
   name: e2e-tr
 spec:
-  serviceAccountName: docker-hub
+  serviceAccountName: e2e-sa
   taskRef:
     name: sock-e2e-t
   params:
