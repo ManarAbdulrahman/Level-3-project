@@ -11,5 +11,6 @@ I faild to day to finish the task ;(
 # Day 3
 I'll try to push the images again to dockerhub 
 And try running the app
-I succeeded and push the images to docker hub after changeing the namespace to tekton-pipelines(tekton works only in this namespace appearntly) 
+I succeeded and push the some mages to docker hub after changeing the namespace to tekton-pipelines(tekton works only in this namespace appearntly) 
+some of service's dockerfiles need to be multistaged to work and i'm having a problem with that :(
 
