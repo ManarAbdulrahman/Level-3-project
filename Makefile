@@ -40,4 +40,4 @@ repos:
 	helm repo update
 
 namespaces:
-	kubectl apply -f namespaces
+	kubectl apply -f namespaces.yaml
