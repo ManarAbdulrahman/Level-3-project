@@ -1,15 +1,13 @@
 FROM maven:3.6.3-adoptopenjdk-11 
 
+COPY . /carts
 WORKDIR /carts
 RUN mvn -DskipTests package
-COPY ./target/*.jar ./app.jar
-
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./app.jar", "--port=80"]
 
 FROM weaveworksdemos/msd-java:jre-latest
 
 WORKDIR /carts
-#COPY *.jar ./app.jar
+COPY ./target.jar ./app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
