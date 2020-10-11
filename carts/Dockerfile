@@ -2,12 +2,12 @@ FROM maven:3.6.3-adoptopenjdk-11
 
 COPY . /carts
 WORKDIR /carts
-RUN mvn -DskipTests package
+RUN mvn -DskipTests -X package
 
 FROM weaveworksdemos/msd-java:jre-latest
 
-WORKDIR /carts
-COPY ./target.jar ./app.jar
+#WORKDIR /carts
+COPY ./target*.jar ./app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
