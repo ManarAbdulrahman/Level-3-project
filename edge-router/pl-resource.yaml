@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: sock-user
+  name: sock-edge-router
 spec:
   type: git
   params:

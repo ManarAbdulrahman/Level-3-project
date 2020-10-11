@@ -1,16 +1,15 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: dockr-runner
+  name: edge-router-tr
 spec:
-  serviceAccountName: docker-hub
-  taskRef:
-    name: sock-user-t
+  serviceAccountName: edge-router-sa
+    name: sock-edge-router-t
   params:
   - name: IMAGE
-    value: "manarabdulrahman/sock-user"
+    value: "manarabdulrahman/sock-edge-router"
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-user
+        name: sock-edge-router
