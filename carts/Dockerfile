@@ -1,6 +1,6 @@
 FROM maven:3.6.3-adoptopenjdk-11 
 
-WORKDIR /usr/src/app
+WORKDIR /carts
 RUN mvn -DskipTests package
 COPY ./target/*.jar ./app.jar
 
@@ -8,7 +8,7 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./app.jar", "
 
 FROM weaveworksdemos/msd-java:jre-latest
 
-WORKDIR /usr/src/app
+WORKDIR /carts
 #COPY *.jar ./app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
