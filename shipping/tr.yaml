@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: dockr-runner
+spec:
+  serviceAccountName: docker-hub
+  taskRef:
+    name: sock-user-t
+  params:
+  - name: IMAGE
+    value: "manarabdulrahman/sock-user"
+  resources:
+    inputs:
+    - name: level-3-project
+      resourceRef:
+        name: sock-user
