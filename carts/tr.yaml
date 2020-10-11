@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: cart-tr
+spec:
+  serviceAccountName: cart-sa 
+  taskRef:
+    name: sock-cart-t
+  params:
+  - name: IMAGE
+    value: "manarabdulrahman/sock-cart"
+  resources:
+    inputs:
+    - name: level-3-project
+      resourceRef:
+        name: sock-cart
