@@ -12,10 +12,10 @@ spec:
     description: Name (reference) of the image to build.
   - name: DOCKERFILE
     description: Path to the Dockerfile to build.
-    default: /workspace/user/Dockerfile
+    default: /workspace/level-3-project/user/Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
-    default: /workspace/user
+    default: /workspace/level-3-project/user
   - name: EXTRA_ARGS
     default: ""
   - name: BUILDER_IMAGE
@@ -43,7 +43,7 @@ spec:
     securityContext:
       runAsUser: 0
   - name: write-digest
-    workingDir: /workspace/user
+    workingDir: /workspace/level-3-project/user
     image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.11.1
     # output of imagedigestexport [{"key":"digest","value":"sha256:eed29..660","resourceRef":{"name":"myrepo/myimage"}}]
     command: ["/ko-app/imagedigestexporter"]

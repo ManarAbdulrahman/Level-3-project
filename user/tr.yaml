@@ -13,4 +13,4 @@ spec:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: level-3-project
+        name: sock-user
