@@ -1,16 +1,16 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: dockr-runner
+  name: front-end-tr
 spec:
-  serviceAccountName: docker-hub
+  serviceAccountName: front-end-sa
   taskRef:
-    name: sock-user-t
+    name: sock-front-end-t
   params:
   - name: IMAGE
-    value: "manarabdulrahman/sock-user"
+    value: "manarabdulrahman/sock-front-end"
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-user
+        name: sock-front-end
