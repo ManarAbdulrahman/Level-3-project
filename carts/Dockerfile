@@ -3,7 +3,6 @@ WORKDIR /carts
 COPY . /carts
 RUN mvn -DskipTests package
 
-WORKDIR 
 FROM weaveworksdemos/msd-java:jre-latest
 
 #WORKDIR /carts
