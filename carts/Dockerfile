@@ -1,8 +1,7 @@
 FROM maven:3.6.3-adoptopenjdk-11 
 
 COPY . /carts
-WORKDIR /carts
-RUN mvn -DskipTests -X package
+RUN mvn -DskipTests package
 
 FROM weaveworksdemos/msd-java:jre-latest
 
