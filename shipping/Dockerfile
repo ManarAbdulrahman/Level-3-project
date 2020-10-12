@@ -1,13 +1,11 @@
-FROM maven:3-jdk-8-slim AS base
+FROM maven:3-jdk-8-slim AS bimage
 RUN mkdir -p /shipping
 COPY . /shipping
 WORKDIR  /shipping
 RUN mvn clean package
 
 FROM weaveworksdemos/msd-java:jre-latest
-COPY --from=base /shipping  ./app
-WORKDIR /app
-COPY *.jar ./app.jar
+COPY --from=bimage /shipping/target/*.jar  /app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
