@@ -1,11 +1,11 @@
 FROM maven:3-jdk-8-slim AS base
-RUN mkdir -p /payment
-COPY . /payment
-WORKDIR  /payment
+RUN mkdir -p /shipping
+COPY . /shipping
+WORKDIR  /shipping
 RUN mvn clean package
 
 FROM weaveworksdemos/msd-java:jre-latest
-COPY --from=base .  ./app
+COPY --from=base /shipping  ./app
 WORKDIR /app
 COPY *.jar ./app.jar
 
