@@ -7,7 +7,7 @@ RUN mvn clean package
 
 FROM weaveworksdemos/msd-java:jre-latest
 
-COPY --from==base /app/source/target/*.jar ./app.jar
+COPY --from=base /app/source/target/*.jar ./app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
