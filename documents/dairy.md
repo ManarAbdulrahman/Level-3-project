@@ -17,3 +17,6 @@ some of service's dockerfiles need to be multistaged to work and i'm having a pr
 # Day 4 
  I'm going to try the docker images locally before i use them in tekton.. even tho i tried some and they don't work,for example the "user" it gave me "no reachable servers",and "orders" could not reach it vi browser with port.
 But "front-end" is working fine(at least one service is working yaay)
+
+EOD i had a problem with "cart's" dockerfile but thanks to fish he found the problem..we were using an old sourcecode and we did not pay attention to the tags of the realses..we suppose to use the latest..i tried some of the images and they were woking fine except "user" it show "no reachable servers",i had to skip it to work o the other ones.
+still i have some services' dockerfiles to test but it's getting late duuude i can't stay up all night.. calm down i'll do them tomorrow

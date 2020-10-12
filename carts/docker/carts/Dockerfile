@@ -1,13 +1,7 @@
-FROM maven:3.6.3-adoptopenjdk-11
+FROM weaveworksdemos/msd-java:latest
 
-COPY . /cart
-WORKDIR /cart
-RUN mvn -DskipTests package
-
-FROM weaveworksdemos/msd-java:jre-latest
-
-WORKDIR /cart
-COPY /target/*.jar ./app.jar
+WORKDIR /usr/src/app
+COPY *.jar ./app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
@@ -27,4 +21,5 @@ LABEL org.label-schema.vendor="Weaveworks" \
   org.label-schema.vcs-ref="${COMMIT}" \
   org.label-schema.schema-version="1.0"
 
+ENV JAVA_OPTS "-Djava.security.egd=file:/dev/urandom"
 ENTRYPOINT ["/usr/local/bin/java.sh","-jar","./app.jar", "--port=80"]

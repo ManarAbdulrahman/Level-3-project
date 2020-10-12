@@ -5,7 +5,6 @@ RUN mvn clean package
 
 FROM weaveworksdemos/msd-java:jre-latest
 COPY --from=bimage /carts/target/*.jar ./app.jar
-
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
 USER ${SERVICE_USER}
@@ -23,5 +22,4 @@ LABEL org.label-schema.vendor="Weaveworks" \
   org.label-schema.vcs-url="github.com:microservices-demo/carts.git" \
   org.label-schema.vcs-ref="${COMMIT}" \
   org.label-schema.schema-version="1.0"
-
-ENTRYPOINT ["/usr/local/bin/java.sh","-jar","./app.jar", "--port=80"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./app.jar", "--port=80"]
