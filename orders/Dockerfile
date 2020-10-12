@@ -2,7 +2,7 @@ FROM maven:3-jdk-8-slim AS base
 RUN mkdir -p /orders
 COPY . /orders
 WORKDIR  /orders
-RUN mvn -DskipTest package
+RUN mvn clean package
 
 
 FROM weaveworksdemos/msd-java:jre-latest
