@@ -1,12 +1,10 @@
-FROM maven:3.6.3-adoptopenjdk-11 
+FROM maven:3-jdk-8 AS bimage
 WORKDIR /carts
 COPY . /carts
-RUN mvn -DskipTests package
+RUN mvn clean package
 
 FROM weaveworksdemos/msd-java:jre-latest
-
-#WORKDIR /carts
-COPY ./target*.jar ./app.jar
+COPY --from=bimage /carts/target/*.jar ./app.jar
 
 RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
