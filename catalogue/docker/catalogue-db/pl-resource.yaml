@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: sock-catalogue-db
+  namespace: test
+spec:
+  type: git
+  params:
+    - name: revision
+      value: test
+    - name: url
+      value: https://github.com/ManarAbdulrahman/level-3-project.git

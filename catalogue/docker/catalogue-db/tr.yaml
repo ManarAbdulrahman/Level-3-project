@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: catalogue-db-tr
+  namespace: test
+spec:
+  serviceAccountName: catalogue-db-sa 
+  taskRef:
+    name: sock-catalogue-db-t
+  params:
+  - name: IMAGE
+    value: "manarabdulrahman/sock-catalogue-db"
+  resources:
+    inputs:
+    - name: level-3-project
+      resourceRef:
+        name: sock-catalogue-db
