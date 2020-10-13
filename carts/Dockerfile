@@ -1,5 +1,5 @@
 FROM maven:3-jdk-8 AS bimage
-RUN mkdir /carts
+RUN mkdir -p /carts
 COPY . /carts
 RUN mvn clean package
 
