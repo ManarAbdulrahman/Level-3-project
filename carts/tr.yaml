@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: cart-tr
+  namespace: tekton-pipelines
 spec:
   serviceAccountName: cart-sa 
   taskRef:

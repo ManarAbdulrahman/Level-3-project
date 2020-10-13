@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
   name: sock-cart
+  namespace: tekton-pipelines
 spec:
   type: git
   params:
