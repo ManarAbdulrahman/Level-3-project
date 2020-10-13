@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: sock-user-t
+  namespace: test
 spec:
   resources:
     inputs:
@@ -26,7 +27,7 @@ spec:
     description: Digest of the image just built.
   steps:
   - name: build-and-push
-    workingDir: /workspace/user
+    workingDir: /workspace/level-3-project/user
     image: $(params.BUILDER_IMAGE)
     # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
     # https://github.com/tektoncd/pipeline/pull/706
@@ -51,7 +52,7 @@ spec:
     - -images=[{"name":"$(params.IMAGE)","type":"image","url":"$(params.IMAGE)","digest":"","OutputImageDir":"$(workspaces.source.path)/image-digest"}]
     - -terminationMessagePath=image-digested
   - name: digest-to-results
-    workingDir: /workspace/user
+    workingDir: /workspace/level-3-project/user
     image: stedolan/jq
     script: |
       cat image-digested | jq -j '.[0].value' | tee /tekton/results/IMAGE-DIGEST

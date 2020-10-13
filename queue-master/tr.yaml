@@ -1,17 +1,17 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: catalogue-tr
+  name: queue-master-tr
   namespace: test
 spec:
-  serviceAccountName: catalogue-sa 
+  serviceAccountName: queue-master-sa
   taskRef:
-    name: sock-catalogue-t
+    name: sock-queue-master-t
   params:
   - name: IMAGE
-    value: "manarabdulrahman/sock-catalogue"
+    value: "manarabdulrahman/sock-queue-master"
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-catalogue
+        name: sock-queue-master

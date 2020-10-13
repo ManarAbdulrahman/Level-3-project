@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: load-test-tr
+  namespace: test
 spec:
   serviceAccountName: load-test-sa
   taskRef:

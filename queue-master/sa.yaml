@@ -1,7 +1,8 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: load-test-sa
+  name: queue-master-sa 
   namespace: test
 secrets:
   - name: docker-hub-creds
+

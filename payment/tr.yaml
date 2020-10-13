@@ -2,13 +2,14 @@ apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: payment-tr
+  namespace: test
 spec:
-  serviceAccountName: docker-hub-creds
+  serviceAccountName: payment-sa
   taskRef:
     name: sock-payment-t
   params:
   - name: IMAGE
-    value: "manarabdulrahman/sock-user"
+    value: "manarabdulrahman/sock-payment"
   resources:
     inputs:
     - name: level-3-project

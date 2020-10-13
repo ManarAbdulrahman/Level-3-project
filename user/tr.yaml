@@ -1,9 +1,10 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: dockr-runner
+  name: user-tr
+  namespace: test
 spec:
-  serviceAccountName: docker-hub
+  serviceAccountName: user-sa
   taskRef:
     name: sock-user-t
   params:

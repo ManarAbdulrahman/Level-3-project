@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
   name: sock-load-test
+  namespace: test
 spec:
   type: git
   params:

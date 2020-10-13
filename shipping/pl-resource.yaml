@@ -1,7 +1,8 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: sock-user
+  name: sock-shipping
+  namespace: test
 spec:
   type: git
   params:

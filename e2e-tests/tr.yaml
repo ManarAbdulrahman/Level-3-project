@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: e2e-tr
+  namespace: test
 spec:
   serviceAccountName: e2e-sa
   taskRef:
