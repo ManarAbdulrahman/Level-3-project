@@ -16,7 +16,7 @@ spec:
     default: /workspace/level-3-project/queue-master/Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
-    default: /workspace/level-3-project/payment
+    default: /workspace/level-3-project/queue-master
   - name: EXTRA_ARGS
     default: ""
   - name: BUILDER_IMAGE
