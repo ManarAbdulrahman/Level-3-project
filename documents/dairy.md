@@ -20,3 +20,8 @@ But "front-end" is working fine(at least one service is working yaay)
 
 EOD i had a problem with "cart's" dockerfile but thanks to fish he found the problem..we were using an old sourcecode and we did not pay attention to the tags of the realses..we suppose to use the latest..i tried some of the images and they were woking fine except "user" it show "no reachable servers",i had to skip it to work o the other ones.
 still i have some services' dockerfiles to test but it's getting late duuude i can't stay up all night.. calm down i'll do them tomorrow
+
+# Day 5 
+
+Ooops late for writting today.. anyways.. i managed to check all dockerfile.. now i have to push them to dockerhub using tekton.
+
