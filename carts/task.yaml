@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: sock-cart-t
-  namespace: tekton-pipelines
+  namespace: test
 spec:
   resources:
     inputs:
