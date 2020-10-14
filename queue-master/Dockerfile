@@ -6,5 +6,5 @@ RUN mvn clean package
 
 FROM java:openjdk-8-alpine
 COPY --from=bimage /queue/target/*.jar ./app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./app.jar", "--port=80"]
 
-ENTRYPOINT ["/usr/local/bin/java.sh","-jar","./app.jar", "--port=80"]
