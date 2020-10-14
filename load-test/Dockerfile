@@ -1,7 +1,7 @@
 FROM python:3.8.6-alpine3.12
 
 # Install locust
-RUN pip install locust
+RUN pip install pyzmq locust faker
 
 ADD locustfile.py /config/locustfile.py
 ADD runLocust.sh /usr/local/bin/runLocust.sh
