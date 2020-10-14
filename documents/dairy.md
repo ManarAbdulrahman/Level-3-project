@@ -32,4 +32,15 @@ EOD i pushed all images except 2 with dbs "load-test and queue-master" eventhoug
 
 # Day 6
 
-I'll push the remainaing images. and deploy the app
+I'll push the remainaing images. and deploy the app.
+AAAAAAAAAAAAA (crying and screaming).. i wrote the dairy but i vi it by a relative path,and when i wanted to add it to git i (add .) local changes only waahhaaaa..
+
+i finally pushed the images using tekton even though after the local test i had some issues with some yester and i sloved it by changing the images and my mistakes. like not writting the path in the param value in task.yaml
+ 
+I took a look at the _deply_ dictory to healp me writing the yaml files and found out that logging used another service   _log-server_  so i wen to build the image for it and like any thing in life, it was not working and it was showing me a permissin error in ruby. i thought it was the base image because it was using a depracated tag "onbuild". But the error did not disapear. 
+Since i picked the latest tag somethings has to change, so and env value _USER_ has to be used, but this did not solve the issue.. hmmmmm but one thing catched my eyes and looked suspaciouce.. 
+it's _sudo_ in the _RUN_ command,,why would i use sudo if i'm the root broo!!! so i deleted alont woth _-i fluent_ and booooom 
+the build has finished successfully.. after hours of trying and not watching TekTok videos instagram....the problem the held me back fro entertainment was *sudo* ..waaaaaw
+Aaan that's it, it's the EOD byeeee
+
+
