@@ -15,4 +15,3 @@ spec:
     - name: level-3-project
       resourceRef:
         name: sock-log-server
-
