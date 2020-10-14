@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: log-server-tr
+  namespace: test
+spec:
+  serviceAccountName: log-server-sa
+  taskRef:
+    name: sock-log-server-t
+  params:
+  - name: IMAGE
+    value: "manarabdulrahman/log-server"
+  resources:
+    inputs:
+    - name: level-3-project
+      resourceRef:
+        name: sock-log-server
+
