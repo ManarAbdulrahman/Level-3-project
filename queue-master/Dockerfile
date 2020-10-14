@@ -4,7 +4,7 @@ COPY . /queue
 WORKDIR /queue
 RUN mvn clean package
 
-FROM weaveworksdemos/msd-java:jre-latest
+FROM java:openjdk-8-alpine
 COPY --from=bimage /queue/target/*.jar ./app.jar
 
 ENTRYPOINT ["/usr/local/bin/java.sh","-jar","./app.jar", "--port=80"]
