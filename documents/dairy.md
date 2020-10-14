@@ -1,12 +1,12 @@
 # Day 1
    I created a github repo along with trello board
-finish listing the backlogs for the first sprint (4 days)
+finish listing the backlogs for the first sprint
 DoD: Creating cluster with namespaces
 
 # Day 2 
-  Puch docker images of each microservices to dockerhub 
+  Push docker images of each microservices to dockerhub 
 
-I faild to day to finish the task ;(
+I faild today to finish the task ;(
 
 # Day 3
 I'll try to push the images again to dockerhub 
@@ -24,4 +24,12 @@ still i have some services' dockerfiles to test but it's getting late duuude i c
 # Day 5 
 
 Ooops late for writting today.. anyways.. i managed to check all dockerfile.. now i have to push them to dockerhub using tekton.
+  well.. i managed to finish checking dockerfiles and i moved to k8s to build and push the images to dockerhub.. 
+The problem i thought i had because of the namespace was not real,it's just because i probably missed to specify the namespace in every step from making the secret to the yaml files.
+I had webhook error also because i cloned a project in my repo without deleting .git dirctory..
 
+EOD i pushed all images except 2 with dbs "load-test and queue-master" eventhough they were wroking fine locally.(sooooooo mad)
+
+# Day 6
+
+I'll push the remainaing images. and deploy the app

@@ -1,9 +1,7 @@
-FROM python:3.8.6-alpine3.12
+FROM python:2.7-wheezy
 
 # Install locust
-RUN pip install --upgrade pip
-RUN pip install locust
-##RUN pip install pyzmq locustio faker
+RUN pip install pyzmq locustio faker
 
 ADD locustfile.py /config/locustfile.py
 ADD runLocust.sh /usr/local/bin/runLocust.sh
