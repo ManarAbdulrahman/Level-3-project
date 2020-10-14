@@ -39,8 +39,8 @@ i finally pushed the images using tekton even though after the local test i had 
  
 I took a look at the _deply_ dictory to healp me writing the yaml files and found out that logging used another service   _log-server_  so i wen to build the image for it and like any thing in life, it was not working and it was showing me a permissin error in ruby. i thought it was the base image because it was using a depracated tag "onbuild". But the error did not disapear. 
 Since i picked the latest tag somethings has to change, so and env value _USER_ has to be used, but this did not solve the issue.. hmmmmm but one thing catched my eyes and looked suspaciouce.. 
-it's _sudo_ in the _RUN_ command,,why would i use sudo if i'm the root broo!!! so i deleted alont woth _-i fluent_ and booooom 
-the build has finished successfully.. after hours of trying and not watching TekTok videos instagram....the problem the held me back fro entertainment was *sudo* ..waaaaaw
+it's _sudo_ in the _RUN_ command,,why would i use sudo if i'm the root broo!!! so i deleted along with it _-u fluent_ and booooom 
+the build has finished successfully.. after hours of trying and not watching TekTok videos or instagram....the problem that held me back from entertainment was *sudo* ..waaaaaw
 Aaan that's it, it's the EOD byeeee
 
 
