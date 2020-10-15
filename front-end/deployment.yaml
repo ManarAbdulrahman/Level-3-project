@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: front-end
+  namespace: test
+  labels:
+    app: front-end
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+      - name: front-end
+        image: manarabdulrahman/sock-front-end
+        resources:
+          limits:
+            cpu: 300m
+            memory: 1000Mi
+          requests:
+            cpu: 100m
+            memory: 300Mi
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        beta.kubernetes.io/os: linux
