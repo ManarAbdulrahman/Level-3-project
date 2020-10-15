@@ -27,7 +27,7 @@ spec:
     description: Digest of the image just built.
   steps:
   - name: build-and-push
-    workingDir: /workspace/level-3-project/catalogue/docker/catalogue-db/Dockerfile
+    workingDir: /workspace/level-3-project/catalogue/docker/catalogue-db/
     image: $(params.BUILDER_IMAGE)
     # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
     # https://github.com/tektoncd/pipeline/pull/706
