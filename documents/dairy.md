@@ -43,4 +43,9 @@ it's _sudo_ in the _RUN_ command,,why would i use sudo if i'm the root broo!!! s
 the build has finished successfully.. after hours of trying and not watching TekTok videos or instagram....the problem that held me back from entertainment was *sudo* ..waaaaaw
 Aaan that's it, it's the EOD byeeee
 
+# Day 7
+
+Tried to deploy front-end and added an ingress using microservices-demo manifests i had some errors regarding the apiVersion since the last commit of these files were 3 years ago.
+
+When running front-end _nginx_ ingress i get 503 error. i'm still working on it
 
