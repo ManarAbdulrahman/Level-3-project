@@ -49,3 +49,6 @@ Tried to deploy front-end and added an ingress using microservices-demo manifest
 
 When running front-end _nginx_ ingress i get 503 error. i'm still working on it
 
+# Day 8
+
+After failing to deploy front-end i tried catalogue service and the k8s dashboard but i get the same respoe .., server refused to connect. i can't find the cause. i even cheecked the ingress in security groupes in terraform and pot 80 is open. and the cluster is the runnig the services and deployment when i list pods and svc's..i'm losing modivation .
