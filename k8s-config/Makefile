@@ -5,12 +5,12 @@ up: cluster-up init
 down: cluster-down
 
 cluster-down:
-	k3d cluster delete labs
+	k3d cluster delete l3p
 
 clean: logs
 	
 cluster-up:
-	k3d cluster create labs \
+	k3d cluster create l3p \
 	    -p 80:80@loadbalancer \
 	    -p 443:443@loadbalancer \
 	    -p 30000-32767:30000-32767@server[0] \

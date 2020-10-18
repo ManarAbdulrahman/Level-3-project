@@ -1,32 +1,38 @@
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end
-  namespace: test
-  labels:
-    app: front-end
+  namespace: test 
 spec:
-  replicas: 1 
+  replicas: 1
   selector:
     matchLabels:
-      app: front-end
+      k: front-end
   template:
     metadata:
       labels:
-        app: front-end
+        k: front-end
     spec:
       containers:
       - name: front-end
-        image: weaveworksdemos/front-end:0.3.12
+        image: manarabdulrahman/sock-front-end
         resources:
-          limits:
-            cpu: 300m
-            memory: 1000Mi
-          requests:
-            cpu: 100m
-            memory: 300Mi
         ports:
-        - containerPort: 80
-      nodeSelector:
-        beta.kubernetes.io/os: linux
+        - containerPort: 8079
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end
+  labels:
+    k: front-end
+  namespace: test
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8079
+    nodePort: 30001
+  selector:
+    k: front-end
