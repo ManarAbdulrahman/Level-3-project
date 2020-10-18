@@ -52,3 +52,10 @@ When running front-end _nginx_ ingress i get 503 error. i'm still working on it
 # Day 8
 
 After failing to deploy front-end i tried catalogue service and the k8s dashboard but i get the same respoe .., server refused to connect. i can't find the cause. i even cheecked the ingress in security groupes in terraform and pot 80 is open. and the cluster is the runnig the services and deployment when i list pods and svc's..i'm losing modivation .
+
+# Day 9 
+ Dear Dairy,,
+   today and after days of suffering i finally solved the mystery.It's because of fish again. 
+He's an incredible detective.
+the service and the deployment could not connect because of the labels, key:value. i was focuing on the value and not the key, both of them should be matching not only the value.
+I started to deploy the services to test them before i put them as tasks, i will continue tomorrow  
