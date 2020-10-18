@@ -1,4 +1,4 @@
-FROM maven:3-jdk-88888888 AS bimage
+FROM maven:3-jdk-8 AS bimage
 WORKDIR /carts
 COPY . /carts
 RUN mvn clean package
