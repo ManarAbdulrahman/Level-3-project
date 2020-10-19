@@ -22,7 +22,7 @@ spec:
         ports:
         - containerPort: 80
         securityContext:
-          allowPrivilegeEscalation: true
+          runAsUser: 0
           readOnlyRootFilesystem: true
       nodeSelector:
         beta.kubernetes.io/os: linux
