@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: orders
-        image: weaveworksdemos/orders:0.4.7
+        image: weaveworksdemos/orders:0.4.7 
         env:
          - name: ZIPKIN
            value: zipkin.jaeger.svc.cluster.local
@@ -61,8 +61,6 @@ spec:
         - name: tmp-volume
           emptyDir:
             medium: Memory
-      nodeSelector:
-        beta.kubeirnetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
