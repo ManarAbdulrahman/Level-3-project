@@ -58,4 +58,8 @@ After failing to deploy front-end i tried catalogue service and the k8s dashboar
    today and after days of suffering i finally solved the mystery.It's because of fish again. 
 He's an incredible detective.
 the service and the deployment could not connect because of the labels, key:value. i was focuing on the value and not the key, both of them should be matching not only the value.
-I started to deploy the services to test them before i put them as tasks, i will continue tomorrow  
+I started to deploy the services to test them before i put them as tasks, i will continue tomorrow 
+
+# day 10
+ &#x1F537; heyyy..I deployed front-end catalogue cart payment and shipping. but in catalogue and some the services i had to give it aa root access, _NET_BIND_SERVICE was not working to give the nonroot user bind to port 80. The only sultotion i have till now is to make it _root_ &#x1F534; (bad, i know). 
+But even the in the docketfile the user were given _cap_vet_bind_service=+ep_ not this is not working appearntly.
