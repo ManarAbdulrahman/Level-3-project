@@ -23,8 +23,6 @@ spec:
         env:
         - name: MONGO_HOST
           value: user-db:27017
-        securityContext:
-          readOnlyRootFilesystem: true
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
