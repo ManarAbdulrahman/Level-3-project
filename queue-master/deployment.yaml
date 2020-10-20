@@ -1,43 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user
+  name: queue-master
   labels:
-    app: user
+    app: queue-master
   namespace: test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user
+      app: queue-master
   template:
     metadata:
       labels:
-        app: user
+        app: queue-master
     spec:
       containers:
-      - name: user
-        image: manarabdulrahman/sock-user
+      - name: queue-master
+        image: weaveworksdemos/queue-master:0.3.1
         ports:
         - containerPort: 80
-        env:
-        - name: MONGO_HOST
-          value: user-db:27017
-        securityContext:
-          readOnlyRootFilesystem: true
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: user
+  name: queue-master
   labels:
-    app: user
+    app: queue-master
+  annotations:
+    prometheus.io/path: "/prometheus"
   namespace: test
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: user
+    app: queue-master
