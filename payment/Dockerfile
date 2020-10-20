@@ -18,6 +18,7 @@ ENV	SERVICE_USER=myuser \
 RUN	addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} && \
 	adduser -g "${SERVICE_NAME} user" -D -H -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} && \
 	apk add --update libcap
+RUN mkdir app
 COPY --from=bimage /app/main /app
 WORKDIR /app
 EXPOSE 80
