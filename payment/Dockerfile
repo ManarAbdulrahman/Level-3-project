@@ -18,14 +18,14 @@ ENV	SERVICE_USER=myuser \
 RUN	addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} && \
 	adduser -g "${SERVICE_NAME} user" -D -H -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} && \
 	apk add --update libcap
-COPY --from=bimage /app /
-WORKDIR /
+COPY --from=bimage /app/main /app
+WORKDIR /app
 EXPOSE 80
 
 RUN	chmod +x /app && \
-	chown -R ${SERVICE_USER}:${SERVICE_GROUP} /app && \
-	setcap 'cap_net_bind_service=+ep' /app
+	chown -R ${SERVICE_USER}:${SERVICE_GROUP} /app/main && \
+	setcap 'cap_net_bind_service=+ep' /app/main
 
 USER ${SERVICE_USER}
 
-CMD ["/app", "-port=80"]
+CMD ["/app/main", "-port=80"]
