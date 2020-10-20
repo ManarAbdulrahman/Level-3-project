@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun 
+metadata:
+  name: user-db-tr
+  namespace: test
+spec:
+  serviceAccountName: user-db-sa
+  taskRef:
+    name: sock-user-db-t
+  params:
+  - name: IMAGE
+    value: "manarabdulrahman/sock-user-db"
+  resources:
+    inputs:
+    - name: level-3-project
+      resourceRef:
+        name: sock-user-db

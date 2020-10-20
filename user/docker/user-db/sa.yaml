@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: user-db-sa
+  namespace: test
+secrets:
+  - name: docker-hub-creds
