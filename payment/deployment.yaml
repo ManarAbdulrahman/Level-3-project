@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: payment
-        image: manarabdulrahman/sock-payment
+        image: rayanah/payment
         ports:
         - containerPort: 80
         securityContext:

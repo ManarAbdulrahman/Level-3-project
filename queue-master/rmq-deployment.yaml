@@ -7,6 +7,9 @@ metadata:
   namespace: test
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
   template:
     metadata:
       labels:
