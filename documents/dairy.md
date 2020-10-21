@@ -63,3 +63,6 @@ I started to deploy the services to test them before i put them as tasks, i will
 # day 10
  &#x1F537; heyyy..I deployed front-end catalogue cart payment and shipping. but in catalogue and some of the services i had to give it a root access,error &#x1F53B; exit="listen tcp :80: bind: permission denied"&#x1F53B;  _NET_BIND_SERVICE was not working to give the nonroot user bind to port 80. The only sultotion i have till now is to make it _root_ &#x1F534; (bad, i know). 
 But even the in the docketfile the user were given _cap_net_bind_service=+ep_ ,it is not working appearntly.
+
+# day 11
+  Today i completed the rest of the deployment except payment it gives me the same error as yesterday.  User-db had a probelm in building dockerfile in -*Tekton*-, building and other steps times out after 1 hour of waiting to the prev step to finish, turns out there's a _--shutdown_ flag to stop the process(not sure why would weaveworks want to shut down, so i'm not sure if it will affect the functionality ) but after removing the flag it did not take more than 3 mins to finish teh whole process
