@@ -14,12 +14,17 @@ spec:
     metadata:
       labels:
         app: rabbitmq
+      annotations:
+        prometheus.io/scrape: "true"
     spec:
       containers:
       - name: rabbitmq
-        image: rabbitmq:3.6.8
+        image: rabbitmq:3.6.8-management
         ports:
+        - containerPort: 15672
+          name: management
         - containerPort: 5672
+          name: rabbitmq
         securityContext:
           capabilities:
             drop:
@@ -30,5 +35,30 @@ spec:
               - SETUID
               - DAC_OVERRIDE
           readOnlyRootFilesystem: true
+      - name: rabbitmq-exporter
+        image: kbudde/rabbitmq-exporter
+        ports:
+        - containerPort: 9090
+          name: exporter
       nodeSelector:
         beta.kubernetes.io/os: linux
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  labels:
+    app: rabbitmq
+  namespace: test 
+spec:
+  ports:
+    # the port that this service should serve on
+  - port: 5672
+    name: rabbitmq
+    targetPort: 5672
+  - port: 9090
+    name: exporter
+    targetPort: exporter
+    protocol: TCP
+  selector:
+    app: rabbitmq
