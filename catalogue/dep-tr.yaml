@@ -1,0 +1,39 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: read-repo
+spec:
+  resources:
+    inputs:
+      - name: workspace
+        resourceSpec:
+          type: git
+          params:
+            - name: url
+              value: https://github.com/manarabdulrahman/level-3-project.git
+            - name: revision
+              value: test
+            - name: submodules
+              value: e2e-js-test
+  taskSpec:
+    resources:
+      inputs:
+        - name: workspace
+          type: git
+      params:
+        - name: pathToDockerFile
+          default: /workspace/level-3-project/catalogue/Dockerfile
+        - name: pathToContext
+          value: /workspace/examples/microservices/leeroy-web
+
+    steps:
+      - name: build-and-push
+        image: gcr.io/kaniko-project/executor:v0.17.1
+        # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
+        env:
+          - name: "DOCKER_CONFIG"
+            value: "/tekton/home/.docker/"
+        command:
+          - /kaniko/executor
+        args:
+          - --destination=docker.io/manarabdulrahman/gohelloworld       

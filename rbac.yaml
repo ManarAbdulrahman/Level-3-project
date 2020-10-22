@@ -6,10 +6,10 @@ metadata:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  name: math-role
+  name: sock-shop-r
 rules:
 - apiGroups: ["", "extensions", "apps"]
-  resources: ["deployments", "deployments.apps", "replicasets", "pods"]
+  resources: ["services","secrets","deployments", "deployments.apps", "replicasets", "pods"]
   verbs: ["*"]
 ---
 kind: RoleBinding
