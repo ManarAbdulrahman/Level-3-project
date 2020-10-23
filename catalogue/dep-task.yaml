@@ -20,4 +20,6 @@ spec:
       args:
         - "apply"
         - "-f"
-        - "$(params.pathToYamlFile) -n $(params.namespace)"
+        - "$(params.pathToYamlFile)"
+        - "-n"
+        - " $(params.namespace)"
