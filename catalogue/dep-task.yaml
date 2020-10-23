@@ -22,4 +22,4 @@ spec:
         - "-f"
         - "$(params.pathToYamlFile)"
         - "-n"
-        - " $(params.namespace)"
+        - "$(params.namespace)"
