@@ -9,7 +9,7 @@ spec:
     name: sock-catalogue-t
   params:
   - name: IMAGE
-    value: "manarabdulrahman/sock-catalogue"
+    value: "manarabdulrahman/catalogue"
   resources:
     inputs:
     - name: level-3-project

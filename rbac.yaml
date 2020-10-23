@@ -18,8 +18,8 @@ metadata:
   name: sock-shop-rb
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: sock-shop-cr
+  kind: Role
+  name: sock-shop-r
 subjects:
   - kind: ServiceAccount
-    name: sock-shop-sa
+    name: sock-shop-sa 

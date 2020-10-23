@@ -22,6 +22,11 @@ spec:
   - name: BUILDER_IMAGE
     description: The image on which builds will run
     default: gcr.io/kaniko-project/executor:latest
+  - name: pathToYamlFile
+    description: The path to the yaml file to deploy within the git source
+    default: /workspace/level-3-project/catalogue/deployment.yaml
+  - name: namespace
+    default: test
   results:
   - name: IMAGE-DIGEST
     description: Digest of the image just built.
@@ -56,4 +61,10 @@ spec:
     image: stedolan/jq
     script: |
       cat image-digested | jq -j '.[0].value' | tee /tekton/results/IMAGE-DIGEST
-
+  - name: run-kubectl
+    image: lachlanevenson/k8s-kubectl
+    command: ["kubectl"]
+    args:
+     - "apply"
+     - "-f"
+     - "$(params.pathToYamlFile) -n $(params.namespace)"

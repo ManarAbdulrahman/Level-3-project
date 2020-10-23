@@ -1,13 +1,12 @@
 apiVersion: tekton.dev/v1beta1
-kind: TaskRun
+kind: PipelineRun
 metadata:
-  name: deploy-tr
+  name: catalogue-pr
 spec:
+  pipelineRef:
+    name: catalogue-p 
   serviceAccountName: sock-shop-sa
-  taskRef:
-    name: deploy-t
   resources:
-    inputs:
     - name: level-3-project
       resourceRef:
         name: sock-catalogue
