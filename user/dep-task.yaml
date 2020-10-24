@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: deploy-t 
+  name: deploy-shipping-t 
 spec:
   resources:
     inputs:
@@ -10,7 +10,7 @@ spec:
   params:
     - name: pathToYamlFile
       description: The path to the yaml file to deploy within the git source
-      default: level-3-project/catalogue/deployment.yaml
+      default: level-3-project/shipping/deployment.yaml
     - name: namespace
       default: test
   steps:

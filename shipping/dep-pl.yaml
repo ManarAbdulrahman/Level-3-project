@@ -1,16 +1,23 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: catalogue-p 
+  name: shipping-p 
 spec:
   resources:
-    - name: sock-catalogue 
+    - name: level-3-project 
       type: git
   tasks:
     - name: build
       taskRef:
-        name: deploy-using-kubectl
+        name: sock-shipping-t
       resources:
         inputs: 
-        - name: sock-catalogue
-          resource: sock-catalogue
+        - name: level-3-master 
+          resource: level-3-project
+    - name: deploy
+      taskRef:
+        name: deploy-shipping-t 
+      resources:
+        inputs: 
+        - name: level-3-master
+          resource: level-3-project 

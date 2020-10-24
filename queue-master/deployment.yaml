@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: queue-master
-        image: weaveworksdemos/queue-master:0.3.1
+        image: manarabdulrahman/sock-queue-master
         ports:
         - containerPort: 80
       nodeSelector:
