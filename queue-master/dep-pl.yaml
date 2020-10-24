@@ -12,7 +12,7 @@ spec:
         name: sock-queue-master-t
       resources:
         inputs: 
-        - name: level-3-master 
+        - name: level-3-project
           resource: level-3-project
     - name: deploy
       runAfter: ["build"]
@@ -20,5 +20,5 @@ spec:
         name: deploy-queue-master-t 
       resources:
         inputs: 
-        - name: level-3-master
+        - name: level-3-project
           resource: level-3-project 

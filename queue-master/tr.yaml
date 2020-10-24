@@ -7,11 +7,8 @@ spec:
   serviceAccountName: queue-master-sa
   taskRef:
     name: sock-queue-master-t
-  params:
-  - name: IMAGE
-    value: "manarabdulrahman/sock-queue-master"
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-queue-master
+        name: level-3-project 

@@ -9,4 +9,4 @@ spec:
   resources:
     - name: level-3-project 
       resourceRef:
-        name: sock-queue-master
+        name: level-3-project 

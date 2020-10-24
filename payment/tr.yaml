@@ -7,11 +7,8 @@ spec:
   serviceAccountName: payment-sa
   taskRef:
     name: sock-payment-t
-  params:
-  - name: IMAGE
-    value: "manarabdulrahman/sock-payment"
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-payment
+        name: level-3-project

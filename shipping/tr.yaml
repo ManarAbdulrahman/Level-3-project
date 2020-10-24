@@ -7,11 +7,8 @@ spec:
   serviceAccountName: shipping-sa
   taskRef:
     name: sock-shipping-t
-  params:
-  - name: IMAGE
-    value: "manarabdulrahman/sock-shipping"
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-shipping
+        name: level-3-project

@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: sock-shop
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: front-end 
+          servicePort: 8079 
+      - path: /cart
+        backend:
+          serviceName: carts
+          servicePort: 80
+      - path: /catalogue
+        backend:
+          serviceName: catalogue
+          servicePort: 80
+      - path: /orders
+        backend:
+          serviceName: orders
+          servicePort: 80
+      - path: /payment
+        backend:
+          serviceName: payment
+          servicePort: 80
+      - path: /queue
+        backend:
+          serviceName: queue-master
+          servicePort: 80
+      - path: /shipping
+        backend:
+          serviceName: shipping
+          servicePort: 80
+      - path: /user
+        backend:
+          serviceName: user
+          servicePort: 80

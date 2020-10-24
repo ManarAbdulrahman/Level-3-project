@@ -7,11 +7,8 @@ spec:
   serviceAccountName: orders-sa
   taskRef:
     name: sock-orders-t
-  params:
-  - name: IMAGE
-    value: "manarabdulrahman/sock-orders"
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-orders
+        name: level-3-project 

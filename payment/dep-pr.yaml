@@ -7,6 +7,6 @@ spec:
     name: payment-p 
   serviceAccountName: payment-sa
   resources:
-    - name: sock-payment 
+    - name:  level-3-project
       resourceRef:
-        name: sock-payment
+        name: level-3-project 

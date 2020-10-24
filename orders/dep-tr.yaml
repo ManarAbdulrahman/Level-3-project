@@ -10,4 +10,4 @@ spec:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-orders
+        name: level-3-project 
