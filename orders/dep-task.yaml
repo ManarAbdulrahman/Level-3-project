@@ -1,16 +1,19 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: deploy-t 
+  name: deploy-orders-t 
 spec:
   resources:
     inputs:
     - name: level-3-project
       type: git
   params:
+    - name: pathToDBYamlFile
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/orders/db-deployment.yaml
     - name: pathToYamlFile
       description: The path to the yaml file to deploy within the git source
-      default: level-3-project/catalogue/deployment.yaml
+      default: level-3-project/orders/deployment.yaml
     - name: namespace
       default: test
   steps:
@@ -19,6 +22,8 @@ spec:
       command: ["kubectl"]
       args:
         - "apply"
+        - "-f"
+        - "$(params.pathToDBYamlFile)"
         - "-f"
         - "$(params.pathToYamlFile)"
         - "-n"

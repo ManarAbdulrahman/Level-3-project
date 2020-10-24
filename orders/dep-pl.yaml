@@ -1,16 +1,23 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: catalogue-p 
+  name: orders-p 
 spec:
   resources:
-    - name: sock-catalogue 
+    - name: sock-orders 
       type: git
   tasks:
     - name: build
       taskRef:
-        name: deploy-using-kubectl
+        name: sock-orders-t
       resources:
         inputs: 
-        - name: sock-catalogue
-          resource: sock-catalogue
+        - name: sock-orders
+          resource: sock-orders
+    - name: deploy
+      taskRef:
+        name: deploy-orders-t 
+      resources:
+        inputs: 
+        - name: sock-orders
+          resource: sock-orders

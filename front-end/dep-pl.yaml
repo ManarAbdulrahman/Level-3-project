@@ -9,7 +9,7 @@ spec:
   tasks:
     - name: build
       taskRef:
-        name: sock-fron-end-t
+        name: sock-front-end-t
       resources:
         inputs: 
         - name: sock-front-end
