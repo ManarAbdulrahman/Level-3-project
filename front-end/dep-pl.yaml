@@ -4,7 +4,7 @@ metadata:
   name: front-end-p 
 spec:
   resources:
-    - name: sock-front-end
+    - name: level-3-project 
       type: git
   tasks:
     - name: build
@@ -12,12 +12,13 @@ spec:
         name: sock-front-end-t
       resources:
         inputs: 
-        - name: sock-front-end
-          resource: sock-front-end
+        - name: level-3-project
+          resource: level-3-project
     - name: deploy
+      runAfter: ["build"]
       taskRef:
         name: deploy-front-end-t 
       resources:
         inputs: 
-        - name: sock-front-end
-          resource: sock-front-end
+        - name: level-3-project
+          resource: level-3-project

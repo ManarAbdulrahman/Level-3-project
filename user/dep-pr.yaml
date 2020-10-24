@@ -1,12 +1,12 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: shipping-pr
+  name: user-pr
 spec:
   pipelineRef:
-    name: shipping-p 
+    name: user-p 
   serviceAccountName: shipping-sa
   resources:
     - name: level-3-project 
       resourceRef:
-        name: sock-shipping
+        name: level-3-project 

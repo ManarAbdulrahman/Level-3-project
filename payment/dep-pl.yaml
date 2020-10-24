@@ -15,6 +15,7 @@ spec:
         - name: sock-payment
           resource: level-3-project 
     - name: deploy
+      runAfter: ["build"]
       taskRef:
         name: deploy-payment-t 
       resources:

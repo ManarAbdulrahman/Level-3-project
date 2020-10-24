@@ -15,6 +15,7 @@ spec:
         - name: level-3-master 
           resource: level-3-project
     - name: deploy
+      runAfter: ["build"]
       taskRef:
         name: deploy-queue-master-t 
       resources:

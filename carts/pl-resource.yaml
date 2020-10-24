@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: sock-cart
+  name: level-3-project 
   namespace: test
 spec:
   type: git

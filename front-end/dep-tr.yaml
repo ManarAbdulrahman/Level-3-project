@@ -10,4 +10,4 @@ spec:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-front-end
+        name: level-3-project

@@ -14,4 +14,4 @@ spec:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-cart
+        name: level-3-project 

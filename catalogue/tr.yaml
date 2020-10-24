@@ -7,11 +7,8 @@ spec:
   serviceAccountName: catalogue-sa 
   taskRef:
     name: sock-catalogue-t
-  params:
-  - name: IMAGE
-    value: "manarabdulrahman/catalogue"
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-catalogue
+        name: level-3-project 

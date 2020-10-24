@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: shipping-p 
+  name: user-p 
 spec:
   resources:
     - name: level-3-project 
@@ -9,15 +9,16 @@ spec:
   tasks:
     - name: build
       taskRef:
-        name: sock-shipping-t
+        name: sock-user-t
       resources:
         inputs: 
-        - name: level-3-master 
+        - name: level-3-project
           resource: level-3-project
     - name: deploy
+      runAfter: ["build"]
       taskRef:
-        name: deploy-shipping-t 
+        name: deploy-user-t 
       resources:
         inputs: 
-        - name: level-3-master
+        - name: level-3-project
           resource: level-3-project 

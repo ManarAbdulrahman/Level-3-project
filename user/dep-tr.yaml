@@ -1,13 +1,13 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: deploy-shipping-tr
+  name: deploy-user-tr
 spec:
   serviceAccountName: shipping-sa
   taskRef:
-    name: deploy-shipping-t
+    name: deploy-user-t
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-shipping
+        name: level-3-project 

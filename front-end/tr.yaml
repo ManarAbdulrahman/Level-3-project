@@ -7,11 +7,8 @@ spec:
   serviceAccountName: front-end-sa
   taskRef:
     name: sock-front-end-t
-  params:
-  - name: IMAGE
-    value: "manarabdulrahman/sock-front-end"
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-front-end
+        name: level-3-project 

@@ -15,6 +15,7 @@ spec:
         - name: sock-orders
           resource: sock-orders
     - name: deploy
+      runAfter: ["build"]
       taskRef:
         name: deploy-orders-t 
       resources:

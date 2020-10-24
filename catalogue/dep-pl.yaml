@@ -12,12 +12,13 @@ spec:
         name: sock-catalogue-t
       resources:
         inputs: 
-        - name: sock-catalogue
-          resource: sock-catalogue
+        - name: level-3-project 
+          resource: level-3-project
     - name: deploy
+      runAfter: ["build"]
       taskRef:
         name: deploy-catalogue-t 
       resources:
         inputs: 
-        - name: sock-catalogue
-          resource: sock-catalogue
+        - name: level-3-project
+          resource: level-3-project
