@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: catalogue-p 
+spec:
+  resources:
+    - name: sock-catalogue 
+      type: git
+  tasks:
+    - name: build
+      taskRef:
+        name: deploy-using-kubectl
+      resources:
+        inputs: 
+        - name: sock-catalogue
+          resource: sock-catalogue

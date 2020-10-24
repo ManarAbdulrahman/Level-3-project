@@ -70,3 +70,6 @@ But even the in the docketfile the user were given _cap_net_bind_service=+ep_ ,i
 # Day 12
 I fixed the payment service by redoing the dockerfile.User also was not working today and i had to run it as root _runAsUser= 0_.Now I'm trying to deploy monitoring for the whole app.
 
+# Day 13
+ I'm about to try deploying the microservices with tekton. 
+EOD finally succeeded, i deployed catalogue using tekton.i have tried several methods and finally one of them worked,but i was getting the "path to yaml file not found" and the problem was because i was putting the args for the params in the same line. i had to put each flag and command in a separate line.I had to use role and roleBinding to run the pipeline and pipelineRun.

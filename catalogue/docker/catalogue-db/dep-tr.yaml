@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: deploy-tr
+spec:
+  serviceAccountName: sock-shop-sa
+  taskRef:
+    name: deploy-t
+  resources:
+    inputs:
+    - name: level-3-project
+      resourceRef:
+        name: sock-catalogue

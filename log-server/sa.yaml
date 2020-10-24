@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: log-server-sa
-  namespace: test
-secrets:
-  - name: docker-hub-creds

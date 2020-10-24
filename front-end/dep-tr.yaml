@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: deploy-tr
+spec:
+  serviceAccountName: front-end-sa
+  taskRef:
+    name: deploy-front-end-t
+  resources:
+    inputs:
+    - name: level-3-project
+      resourceRef:
+        name: sock-front-end
