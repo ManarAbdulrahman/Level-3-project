@@ -13,7 +13,7 @@ spec:
       resources:
         inputs: 
         - name: sock-payment
-          resource: sock-payment
+          resource: level-3-project 
     - name: deploy
       taskRef:
         name: deploy-payment-t 
