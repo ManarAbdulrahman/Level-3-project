@@ -5,3 +5,24 @@ metadata:
   namespace: test 
 secrets:
   - name: docker-hub-creds
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: catalogue-r
+rules:
+- apiGroups: ["", "extensions", "apps"]
+  resources: ["services","secrets","deployments", "deployments.apps", "replicasets", "pods"]
+  verbs: ["*"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: catalogue-rb
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: catalogue-r
+subjects:
+  - kind: ServiceAccount
+    name: catalogue-sa 

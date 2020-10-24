@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: payment-p 
+spec:
+  resources:
+    - name: sock-payment 
+      type: git
+  tasks:
+    - name: build
+      taskRef:
+        name: sock-payment-t
+      resources:
+        inputs: 
+        - name: sock-payment
+          resource: sock-payment
+    - name: deploy
+      taskRef:
+        name: deploy-payment-t 
+      resources:
+        inputs: 
+        - name: sock-payment
+          resource: sock-payment

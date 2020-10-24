@@ -1,13 +1,13 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: deploy-catalogue-tr
+  name: deploy-payment-tr
 spec:
-  serviceAccountName: catalogue-sa
+  serviceAccountName: payment-sa
   taskRef:
-    name: deploy-catalogue-t
+    name: deploy-payment-t
   resources:
     inputs:
     - name: level-3-project
       resourceRef:
-        name: sock-catalogue
+        name: sock-payment

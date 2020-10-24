@@ -9,7 +9,14 @@ spec:
   tasks:
     - name: build
       taskRef:
-        name: deploy-using-kubectl
+        name: sock-catalogue-t
+      resources:
+        inputs: 
+        - name: sock-catalogue
+          resource: sock-catalogue
+    - name: deploy
+      taskRef:
+        name: deploy-catalogue-t 
       resources:
         inputs: 
         - name: sock-catalogue
