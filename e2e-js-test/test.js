@@ -150,7 +150,7 @@
           });
 
           app.use(function(_req, _res) {
-            helpers.simpleHttpRequest("http://15.185.200.129/", _res, done);
+            helpers.simpleHttpRequest("http://15.185.200.129/user", _res, done);
           });
 
           chai.
