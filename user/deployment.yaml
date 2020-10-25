@@ -37,7 +37,7 @@ metadata:
   namespace: test
 spec:
   ports:
-  - port: 80
+  - port: 80 
     targetPort: 80
   selector:
     app: user

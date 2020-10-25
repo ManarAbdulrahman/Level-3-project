@@ -39,4 +39,4 @@ spec:
       - path: /user
         backend:
           serviceName: user
-          servicePort: 80
+          servicePort: 80 
