@@ -1,7 +1,7 @@
 {
   "name": "e2e-test",
   "version": "1.0.0",
-  "description": "e2e-tesing for weaveworks sockshop",
+  "description": "e2e-test for weaveworks sock-shop ",
   "main": "helpers.js",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -10,7 +10,7 @@
     "chrome-launcher": "^0.13.4",
     "chrome-remote-interface": "^0.28.2",
     "express": "^4.17.1",
-    "http": "0.0.1-security",
+    "http": "^0.0.1-security",
     "request": "^2.88.2",
     "sinon": "^9.2.0"
   },
@@ -20,13 +20,18 @@
   "scripts": {
     "test": "mocha"
   },
-  "author": "Manar",
+  "author": "manar",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KnowledgeHut-AWS/level3-project/blob/main/e2e-js-test"
+    "url": "git+https://github.com/manarabdulrahman/level-3-project.git"
   },
   "keywords": [
-    "sock-shop"
-  ]
+    "e2e",
+    "test"
+  ],
+  "bugs": {
+    "url": "https://github.com/manarabdulrahman/level-3-project/issues"
+  },
+  "homepage": "https://github.com/manarabdulrahman/level-3-project#readme"
 }
