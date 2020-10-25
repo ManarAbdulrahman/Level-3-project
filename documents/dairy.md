@@ -73,3 +73,8 @@ I fixed the payment service by redoing the dockerfile.User also was not working 
 # Day 13
  I'm about to try deploying the microservices with tekton. 
 EOD finally succeeded, i deployed catalogue using tekton.i have tried several methods and finally one of them worked,but i was getting the "path to yaml file not found" and the problem was because i was putting the args for the params in the same line. i had to put each flag and command in a separate line.I had to use role and roleBinding to run the pipeline and pipelineRun.
+
+# Day 14
+&#x1F537; I deployed each microservice in tekton (finally). but i don't get it what tis the point of the pipeline if it needs to run each task before..it's already running why would i run it again in a pipeline broo.
+Anyways i did it... aaaand an errot that drove me crazy when i run the pipeline and pipelineRun i fied it by putting the name of the resource and any name that is resorce related the _same name_. ot solved the confusion. 
+&#x1F537; I added ingress, it works with front end, but not the other services, it gives me a _js_ and some sort of page error.. too sleepy to check it out of try to fix it zzZZ
