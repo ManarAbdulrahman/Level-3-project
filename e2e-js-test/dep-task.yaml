@@ -11,4 +11,5 @@ spec:
     - name: testing 
       image: manarabdulrahman/e2e-test 
       script: |
+        #!/bin/sh
         pwd
