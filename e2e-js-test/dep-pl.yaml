@@ -1,23 +1,23 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: queue-master-p 
+  name: e2e-test-pl
 spec:
   resources:
     - name: level-3-project 
       type: git
   tasks:
-    - name: build
+    - name: clone-build 
       taskRef:
-        name: sock-queue-master-t
+        name: e2e-test-t
       resources:
         inputs: 
         - name: level-3-project
           resource: level-3-project
-    - name: deploy
-      runAfter: ["build"]
+    - name: testing
+      runAfter: ["clone-build"]
       taskRef:
-        name: deploy-queue-master-t 
+        name: e2e-test-dep-t 
       resources:
         inputs: 
         - name: level-3-project

@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: queue-master-pr
+  name: e2e-test-pr
 spec:
   pipelineRef:
-    name: queue-master-p 
-  serviceAccountName: queue-master-sa
+    name: e2e-test-pl 
+  serviceAccountName: e2e-test-sa
   resources:
     - name: level-3-project 
       resourceRef:

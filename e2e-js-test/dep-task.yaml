@@ -11,7 +11,7 @@ spec:
       default: test
   steps:
     - name: run-kubectl
-      image: lachlanevenson/k8s-kubectl
+      image: manarabdulrahman/e2e-test 
       script: |
         make install
         make itest
