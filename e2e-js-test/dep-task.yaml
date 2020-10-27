@@ -12,5 +12,4 @@ spec:
       image: manarabdulrahman/e2e-test 
       command: ["make"]
       args:
-        install
-        itest
+        - itest
