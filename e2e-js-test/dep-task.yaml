@@ -10,6 +10,5 @@ spec:
   steps:
     - name: testing 
       image: manarabdulrahman/e2e-test 
-      command: ["make"]
-      args:
-        - itest
+      script: |
+        pwd

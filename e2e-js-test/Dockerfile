@@ -1,5 +1,6 @@
 FROM node:alpine
-
+RUN mkdir app
+COPY . /app
 ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache make git curl jq python3 && \
     ln -sf python3 /usr/bin/python
