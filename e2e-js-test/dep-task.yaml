@@ -7,11 +7,10 @@ spec:
     inputs:
     - name: level-3-project
       type: git
-    - name: namespace
-      default: test
   steps:
-    - name: run-kubectl
+    - name: testing 
       image: manarabdulrahman/e2e-test 
-      script: |
-        make install
-        make itest
+      command: ["make"]
+      args:
+        install
+        itest
