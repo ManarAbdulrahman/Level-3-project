@@ -4,15 +4,15 @@
   require("./config");
 
   casper.test.begin("User logs in", 3, function suite(test) {
-    casper.start("http://15.185.200.129:30001/", function() {
+    casper.start(, function() {
       test.assertNotVisible("#login-modal", "user does not see the login dialogue");
 
       this.clickLabel("Login");
       casper.waitUntilVisible("#login-modal", function() {
         test.assertVisible("#login-modal", "user is presented with the login dialogue");
         this.fill("#login-modal form", {
-          "username": "eve_Berger",
-          "password": "duis"
+          "username": "Eve_Berger",
+          "password": "eve"
         }, false);
       }, function() {
         test.fail("login dialogue never showed up");

@@ -133,7 +133,7 @@
       var res, resErr;
 
       it("performs a GET request to the given URL", function() {
-        var url = "http://15.185.200.129";
+        var url = "http://google.com";
         sinon.stub(request, "get").callsFake(function(requestedUrl, cb) {
           expect(requestedUrl).to.equal(url);
         });
@@ -150,7 +150,7 @@
           });
 
           app.use(function(_req, _res) {
-            helpers.simpleHttpRequest("http://15.185.200.129/user", _res, done);
+            helpers.simpleHttpRequest("http://api.example.org/users", _res, done);
           });
 
           chai.

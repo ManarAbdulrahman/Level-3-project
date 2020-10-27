@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: e2e-test-dep-t
+spec:
+  resources:
+    inputs:
+    - name: level-3-project
+      type: git
+    - name: namespace
+      default: test
+  steps:
+    - name: run-kubectl
+      image: lachlanevenson/k8s-kubectl
+      script: |
+        make install
+        make itest
