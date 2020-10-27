@@ -13,3 +13,4 @@ spec:
       script: |
         #!/bin/sh
         pwd
+        ls

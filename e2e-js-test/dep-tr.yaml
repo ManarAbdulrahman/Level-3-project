@@ -5,7 +5,7 @@ metadata:
 spec:
   serviceAccountName: e2e-test-sa
   taskRef:
-    name: e2e-test-t
+    name: e2e-test-dep-t
   resources:
     inputs:
     - name: level-3-project
