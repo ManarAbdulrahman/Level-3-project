@@ -11,7 +11,7 @@
   var count = 0;
 
   ["cart", "item"].forEach(function(col) {
-    client.connect(url, function(err, db) {
+    client.connect(url, function(err, client) {
       if (err) return handleErr(err);
       db.
         collection(col).
