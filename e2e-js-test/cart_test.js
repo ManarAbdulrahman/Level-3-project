@@ -4,7 +4,7 @@
 
   casper.test.begin("User interacts with the cart", 1, function(test) {
     // initial load and login
-    casper.start("http://15.185.100.129/", function() {
+    casper.start("http://front-end/", function() {
       this.clickLabel("Login");
       this.fill("#login-modal form", {
         "username": "Eve_Berger",
