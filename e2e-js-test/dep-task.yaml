@@ -14,6 +14,8 @@ spec:
         #!/bin/sh
         cd level-3-project/e2e-js-test
         rm -rf node_modules package-lock.json
+        npm init -y
         npm install
+        npm install mongodb --save
         npm start
         source runner.sh

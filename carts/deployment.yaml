@@ -18,14 +18,14 @@ spec:
     spec:
       containers:
       - name: carts
-        image: manarabdulrahman/sock-cart 
+        image: manarabdulrahman/sock-cart
+        ports:
+        - containerPort: 80 
         env:
          - name: ZIPKIN
            value: zipkin.jaeger.svc.cluster.local
          - name: JAVA_OPTS
            value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
-        ports:
-        - containerPort: 80
         securityContext:
           runAsUser: 0
         volumeMounts:
