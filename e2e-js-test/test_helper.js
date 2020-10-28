@@ -13,8 +13,7 @@
   ["cart", "item"].forEach(function(col) {
     client.connect(url, function(err, client) {
       if (err) return handleErr(err);
-      db.
-        collection(col).
+      client.collection(col).
         remove({}, { w: 1 }, function(err, res) {
         if (err) return handleErr(err);
         client.close();
