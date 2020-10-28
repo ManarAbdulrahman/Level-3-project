@@ -28,7 +28,6 @@ spec:
         - containerPort: 80
         securityContext:
           runAsUser: 0
-          readOnlyRootFilesystem: true
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
