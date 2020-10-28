@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: cart-pr
+spec:
+  pipelineRef:
+    name: cart-p 
+  serviceAccountName: cart-sa
+  resources:
+    - name: level-3-project
+      resourceRef:
+        name: level-3-project 
