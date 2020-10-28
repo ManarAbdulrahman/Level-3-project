@@ -78,3 +78,10 @@ EOD finally succeeded, i deployed catalogue using tekton.i have tried several me
 &#x1F537; I deployed each microservice in tekton (finally). but i don't get it what tis the point of the pipeline if it needs to run each task before..it's already running why would i run it again in a pipeline broo.
 Anyways i did it... aaaand an errot that drove me crazy when i run the pipeline and pipelineRun i fied it by putting the name of the resource and any name that is resorce related the _same name_. ot solved the confusion. 
 &#x1F537; I added ingress, it works with front end, but not the other services, it gives me a _js_ and some sort of page error.. too sleepy to check it out of try to fix it zzZZ
+
+# Day 15 
+   I run e2e tests and they failed locally when i try it with front-end services name. 
+I had to change it to the ip, it worked but have some fails like Cart, login and Checkout have the most fails. I changed the password to "eve" instead of -duis-(because it's the wrong passcode) to fix the login test.
+
+# Day 16
+
