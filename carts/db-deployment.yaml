@@ -4,7 +4,6 @@ metadata:
   name: carts-db
   labels:
     app: carts-db
-  namespace: test
 spec:
   replicas: 1
   selector:
@@ -37,7 +36,6 @@ metadata:
   name: carts-db
   labels:
     app: carts-db
-  namespace: test
 spec:
   ports:
   - port: 27017
