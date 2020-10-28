@@ -17,7 +17,7 @@
         collection(col).
         remove({}, { w: 1 }, function(err, res) {
         if (err) return handleErr(err);
-        db.close();
+        client.close();
       });
     });
   });
