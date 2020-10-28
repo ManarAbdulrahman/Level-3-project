@@ -6,7 +6,7 @@
 
   casper.test.begin("User buys some socks", 7, function(test) {
     // initial load and login
-    casper.start("http://http://15.185.80.20:30001", function() {
+    casper.start("http://15.185.100.129/", function() {
      test.assertNotVisible("#login-modal", "user does not see the login dialogue");
      
      this.clickLabel("Login");
@@ -22,7 +22,7 @@
       }, function() {
         test.fail("login failed");
       }, 3000);
-}    });
+});   });
 
     // TODO: Test that "Proceed to checkout" button is disabled when the cart is empty
 
