@@ -9,7 +9,7 @@ spec:
   tasks:
     - name: build
       taskRef:
-        name: level-3-project-t
+        name: sock-cart-t
       resources:
         inputs: 
         - name: level-3-project
