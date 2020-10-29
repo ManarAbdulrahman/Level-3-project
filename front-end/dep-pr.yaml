@@ -3,6 +3,9 @@ kind: PipelineRun
 metadata:
   name: front-end-pr
 spec:
+  params:
+  - name: namespace
+    value: "test"
   pipelineRef:
     name: front-end-p 
   serviceAccountName: front-end-sa
