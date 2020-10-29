@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: manarabdulrahman/sock-catalogue 
+        image: mnarabdulrahman/sock-catalogue 
         ports:
         - containerPort: 80
         securityContext:
