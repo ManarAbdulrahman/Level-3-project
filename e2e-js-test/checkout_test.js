@@ -6,7 +6,7 @@
 
   casper.test.begin("User buys some socks", 7, function(test) {
     // initial load and login
-    casper.start("http://front-end:30001", function() {
+    casper.start("http://front-end/", function() {
      test.assertNotVisible("#login-modal", "user does not see the login dialogue");
      
      this.clickLabel("Login");
