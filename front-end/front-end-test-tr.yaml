@@ -1,12 +1,13 @@
 apiVersion: tekton.dev/v1beta1
-kind: PipelineRun
+kind: TaskRun
 metadata:
-  name: front-end-pr
+  name: front-end-test-tr
 spec:
-  pipelineRef:
-    name: front-end-p 
   serviceAccountName: front-end-sa
+  taskRef:
+    name: front-end-test
   resources:
+    inputs:
     - name: level-3-project
       resourceRef:
-        name: level-3-project 
+        name: level-3-project

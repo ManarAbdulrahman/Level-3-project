@@ -11,8 +11,6 @@ spec:
     - name: pathToYamlFile
       description: The path to the yaml file to deploy within the git source
       default: level-3-project/front-end/deployment.yaml
-    - name: ns
-      default: test
   steps:
     - name: run-kubectl
       image: lachlanevenson/k8s-kubectl
@@ -21,5 +19,3 @@ spec:
         - "apply"
         - "-f"
         - "$(params.pathToYamlFile)"
-        - "-n"
-        - "$(params.ns)"

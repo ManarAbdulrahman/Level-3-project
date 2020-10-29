@@ -3,10 +3,6 @@ kind: Pipeline
 metadata:
   name: front-end-p 
 spec:
-  params:
-    - name: namespace
-      type: string
-      default: "test"
   resources:
     - name: level-3-project 
       type: git
@@ -22,26 +18,23 @@ spec:
       runAfter: ["build"]
       taskRef:
         name: deploy-front-end-t 
-      params:
-      - name: ns
-        value: "$(params.namespace)"
       resources:
         inputs: 
         - name: level-3-project
           resource: level-3-project
-#    - name: testing 
-#     runAfter: ["deploy-to-test"]
-#     taskRef:
-#        name: front-end-test
-#      resources:
-#        inputs:
-#        - name: level-3-project
-#          resource: level-3-project
-#    - name: production
-#      runAfter: ["testing"]
-#      taskRef:
-#        name: production
-#      resources:
-#        inputs: 
-#        - name: level-3-project
-#          resource: level-3-project
+    - name: testing 
+     runAfter: ["deploy-to-test"]
+     taskRef:
+        name: front-end-test
+      resources:
+        inputs:
+        - name: level-3-project
+          resource: level-3-project
+    - name: production
+      runAfter: ["testing"]
+      taskRef:
+        name: production
+      resources:
+        inputs: 
+        - name: level-3-project
+          resource: level-3-project

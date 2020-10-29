@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end
-  namespace: test 
 spec:
   replicas: 1
   selector:
@@ -29,7 +28,6 @@ metadata:
   name: front-end
   labels:
     k: front-end
-  namespace: test
 spec:
   type: LoadBalancer
   ports:
