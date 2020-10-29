@@ -5,7 +5,6 @@ metadata:
   name: catalogue-db
   labels:
     app: catalogue-db
-  namespace: test
 spec:
   replicas: 1
   selector:
@@ -36,7 +35,6 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: test
 spec:
   ports:
     # the port that this service should serve on

@@ -72,7 +72,9 @@ I fixed the payment service by redoing the dockerfile.User also was not working 
 
 # Day 13
  I'm about to try deploying the microservices with tekton. 
-EOD finally succeeded, i deployed catalogue using tekton.i have tried several methods and finally one of them worked,but i was getting the "path to yaml file not found" and the problem was because i was putting the args for the params in the same line. i had to put each flag and command in a separate line.I had to use role and roleBinding to run the pipeline and pipelineRun.
+EOD finally succeeded, i deployed catalogue using tekton.i have tried several methods and finally one of them worked,but i was getting the "path to yaml file not found" and the problem was because i was putting the args for the params in the same line. 
+
+I had to put each flag and command in a separate line.I had to use role and roleBinding to run the pipeline and pipelineRun.
 
 # Day 14
 &#x1F537; I deployed each microservice in tekton (finally). but i don't get it what tis the point of the pipeline if it needs to run each task before..it's already running why would i run it again in a pipeline broo.
@@ -81,7 +83,13 @@ Anyways i did it... aaaand an errot that drove me crazy when i run the pipeline 
 
 # Day 15 
    I run e2e tests and they failed locally when i try it with front-end services name. 
-I had to change it to the ip, it worked but have some fails like Cart, login and Checkout have the most fails. I changed the password to "eve" instead of -duis-(because it's the wrong passcode) to fix the login test.
+I had to change it to the ip, it worked but have some fails like Cart, login and Checkout have the most fails.
+
+ I changed the password to "eve" instead of -duis-(because it's the wrong passcode) to fix the login test.Added line *10* in checkout_test.js and _});_ in line *25*
 
 # Day 16
+  Today i tried to make tests in tekton, i made a task with script to _npm init & install_ but i got "mongodb module not found_ this error comes when i run _test_helper.js_ in _runner.js_. 
 
+But the module was not installed when i did make _npm_ or _install_, so i added mongo db to the install list, since i downloaded the latest verion the _test_helper.js_ was written in an old format so i did changed the object from _db_ to _client_ and added line *17*. 
+
+Failing in cart caused by mongodb also wrong _url_, I changed it to carts-db serveice name.
