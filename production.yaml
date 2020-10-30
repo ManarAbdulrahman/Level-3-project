@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: production
+spec:
+  resources:
+    inputs:
+    - name: level-3-project
+      type: git
+  steps:
+    - name: production 
+      image: ubuntu 
+      script: |
+        #!/bin/sh
+        make fron-end-prod  
+        make cart-prod
+        make catalogue-prod
+        make orders-prod
+        make shipping-prod
+        make payment-prod
+        make queue-master-prod
+        make users-prod
+         
