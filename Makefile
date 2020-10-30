@@ -1,6 +1,6 @@
 .PHONY: up down init cluster-up install uninstall logs repos namespaces cluster-down clean provision
 
-up: cluster-up init tests 
+up: cluster-up init docker platform test prod tests 
 
 down: cluster-down
 
@@ -20,9 +20,12 @@ cluster-up:
 	    --k3s-server-arg '--no-deploy=traefik' \
 	    --agents 3
 
-init: logs repos namespaces install-ingress
-platform: install-service-mesh install-ingress install-logging install-monitoring install-secrets
-deplatform: delete-service-mesh delete-ingress delete-logging delete-monitoring delete-secrets
+docker:
+	docker login
+	kubectl create secret generic docker-hub-creds --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json --type=kubernetes.io/dockerconfigjson -n test
+	kubectl create secret generic docker-hub-creds --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json --type=kubernetes.io/dockerconfigjson -n prod
+init: logs repos namespaces 
+platform: install-cicd install-ingress install-logging install-monitoring
 
 logs:
 	touch output.log
@@ -66,50 +69,55 @@ delete-cicd:
 
 tests: front-end-test cart-test catalogue-test orders-test payment-test shipping-test users-test queue-master-test
 
+test:
+	kubectl apply -f e2e-js-test/task.yaml -f e2e-js-test/tr.yaml -n test 
+prod:
+	kubectl apply -f production.yaml -f ingress.yaml -n prod
+
 front-end-test:
-	kubectl apply -f front-end/sa.yaml -f front-end/pl-resource.yaml -f front-end/task.yaml  -f front-end/dep-task.yaml -f front-end/dep-pl.yaml -f front-end/dep-pr.yaml -n test
+	kubectl apply -f front-end/sa.yaml -f front-end/pl-resource.yaml -f front-end/task.yaml  -f front-end/dep-task.yaml -f front-end/front-end-test-t.yaml -f front-end/dep-pl.yaml -f front-end/dep-pr.yaml -n test
 
 front-end-prod:
 	Kubectl apply -f front-end/sa.yaml -f front-end/pl-resource.yaml  -f front-end/dep-task.yaml -f front-end/dep-tr.yaml -n prod
 
 cart-test:
-	kubectl apply -f carts/sa.yaml -f carts/pl-resource.yaml -f carts/task.yaml  -f carts/dep-task.yaml -f carts/dep-pl.yaml -f carts/dep-pr.yaml -n test
+	kubectl apply -f carts/sa.yaml -f carts/pl-resource.yaml -f carts/task.yaml  -f carts/dep-task.yaml -f carts/cart-test-t.yaml -f carts/dep-pl.yaml -f carts/dep-pr.yaml -n test
 
 cart-prod:
 	Kubectl apply -f carts/sa.yaml -f carts/pl-resource.yaml -f carts/dep-task.yaml -f carts/dep-tr.yaml -n prod
 
 catalogue-test:
-	kubectl apply -f catalogue/sa.yaml -f catalogue/pl-resource.yaml -f catalogue/task.yaml  -f catalogue/dep-task.yaml -f catalogue/dep-pl.yaml -f catalogue/dep-pr.yaml -n test
+	kubectl apply -f catalogue/sa.yaml -f catalogue/pl-resource.yaml -f catalogue/task.yaml  -f catalogue/dep-task.yaml -f catalogue/catalogue-test-t.yaml -f catalogue/dep-pl.yaml -f catalogue/dep-pr.yaml -n test
 
 catalogue-prod:
 	 Kubectl apply -f catalogue/sa.yaml -f catalogue/pl-resource.yaml -f catalogue/dep-task.yaml -f catalogue/dep-tr.yaml -n prod
 
 orders-test:
-	kubectl apply -f orders/sa.yaml -f orders/pl-resource.yaml -f orders/task.yaml  -f orders/dep-task.yaml -f orders/dep-pl.yaml -f orders/dep-pr.yaml -n test
+	kubectl apply -f orders/sa.yaml -f orders/pl-resource.yaml -f orders/task.yaml  -f orders/dep-task.yaml -f orders/orders-test-t.yaml -f orders/dep-pl.yaml -f orders/dep-pr.yaml -n test
 
 orders-prod:
 	Kubectl apply -f orders/sa.yaml -f orders/pl-resource.yaml -f orders/dep-task.yaml -f orders/dep-tr.yaml -n prod
 
 payment-test:
-	kubectl apply -f payment/sa.yaml -f payment/pl-resource.yaml -f payment/task.yaml  -f payment/dep-task.yaml -f payment/dep-pl.yaml -f payment/dep-pr.yaml -n test
+	kubectl apply -f payment/sa.yaml -f payment/pl-resource.yaml -f payment/task.yaml  -f payment/dep-task.yaml -f payment/payment-test-t.yaml -f payment/dep-pl.yaml -f payment/dep-pr.yaml -n test
 
 payment-prod:
 	Kubectl apply -f payment/sa.yaml -f payment/pl-resource.yaml -f payment/dep-task.yaml -f payment/dep-tr.yaml -n prod	
 
 shipping-test:
-	kubectl apply -f shipping/sa.yaml -f shipping/pl-resource.yaml -f shipping/task.yaml  -f shipping/dep-task.yaml -f shipping/dep-pl.yaml -f shipping/dep-pr.yaml -n test
+	kubectl apply -f shipping/sa.yaml -f shipping/pl-resource.yaml -f shipping/task.yaml  -f shipping/dep-task.yaml -f shipping/shipping-test-t.yaml -f shipping/dep-pl.yaml -f shipping/dep-pr.yaml -n test
 
 shipping-prod:
 	Kubectl apply -f shipping/sa.yaml -f shipping/pl-resource.yaml -f shipping/dep-task.yaml -f shipping/dep-tr.yaml -n prod
 
 users-test:
-	kubectl apply -f users/sa.yaml -f users/pl-resource.yaml -f users/task.yaml  -f users/dep-task.yaml -f users/dep-pl.yaml -f users/dep-pr.yaml -n test
+	kubectl apply -f user/sa.yaml -f user/pl-resource.yaml -f user/task.yaml  -f user/dep-task.yaml -f user/users-test-t.yaml -f user/dep-pl.yaml -f user/dep-pr.yaml -n test
 
 users-prod:
-	Kubectl apply -f users/sa.yaml -f users/pl-resource.yaml -f users/dep-task.yaml -f users/dep-tr.yaml -n prod
+	Kubectl apply -f user/sa.yaml -f user/pl-resource.yaml -f user/dep-task.yaml -f user/dep-tr.yaml -n prod
 
-master-queue-test:
-	kubectl apply -f queue-master/sa.yaml -f queue-master/pl-resource.yaml -f queue-master/task.yaml  -f queue-master/dep-task.yaml -f master-queue/dep-pl.yaml -f master-queue/dep-pr.yaml -n test
+queue-master-test:
+	kubectl apply -f queue-master/sa.yaml -f queue-master/pl-resource.yaml -f queue-master/task.yaml  -f queue-master/dep-task.yaml -f queue-master/queue-master-test.t.yaml -f queue-master/dep-pl.yaml -f queue-master/dep-pr.yaml -n test
 
 master-queue-prod:
 	Kubectl apply -f queue/sa.yaml -f queue-master/pl-resource.yaml -f queue-master/dep-task.yaml -f queue-master/dep-tr.yaml -n prod
@@ -118,15 +126,14 @@ install-ingress:
 	echo "Ingress: install" | tee -a output.log
 	kubectl apply -n ingress-nginx -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/cloud/deploy.yaml | tee -a output.log
 	kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=120s
-	kubectl apply -f ingress.yaml -n prod
 
 delete-ingress:
 	echo "Ingress: delete" | tee -a output.log
 	kubectl delete -n ingress -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/cloud/deploy.yaml | tee -a output.log 2>/dev/null | true
 	kubectl apply -f ingress.yaml
 
-install-prometheus:
-	source pro-graf/pro-graf.sh 
+install-monitoring:
+	sh pro-graf/pro-graf.sh 
 
 install-logging:
-	source elf/elf.sh
+	sh elf/elf.sh
