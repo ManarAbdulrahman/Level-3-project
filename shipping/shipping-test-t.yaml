@@ -11,10 +11,10 @@ spec:
     - name: wait for deployment
       image: bash:latest
       script: |
-      #!/usr/bin/env bash 
-      echo "Sorry for keeping you waiting, but we need to wait to start the test :D"
-      sleep 140
-      echo "Thank you for your patience!"
+        #!/usr/bin/env bash 
+        echo "Sorry for keeping you waiting, but we need to wait to start the test :D"
+        sleep 140
+        echo "Thank you for your patience!"
     - name: testing 
       image: manarabdulrahman/e2e-test 
       script: |
