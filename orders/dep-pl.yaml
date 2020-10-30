@@ -14,10 +14,26 @@ spec:
         inputs: 
         - name: level-3-project
           resource: level-3-project 
-    - name: deploy
+    - name: deploy-to-test
       runAfter: ["build"]
       taskRef:
         name: deploy-orders-t 
+      resources:
+        inputs: 
+        - name: level-3-project
+          resource: level-3-project
+    - name: testing 
+     runAfter: ["deploy-to-test"]
+     taskRef:
+        name: orders-test
+      resources:
+        inputs:
+        - name: level-3-project
+          resource: level-3-project
+    - name: production
+      runAfter: ["testing"]
+      taskRef:
+        name: production
       resources:
         inputs: 
         - name: level-3-project

@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: shipping-tr
-  namespace: test
 spec:
   serviceAccountName: shipping-sa
   taskRef:

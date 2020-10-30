@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: payment-tr
+  name: cart-test-tr
 spec:
-  serviceAccountName: payment-sa
+  serviceAccountName: cart-sa
   taskRef:
-    name: sock-payment-t
+    name: cart-test
   resources:
     inputs:
     - name: level-3-project

@@ -4,7 +4,6 @@ metadata:
   name: payment
   labels:
     app: payment
-  namespace: test
 spec:
   replicas: 1
   selector:
@@ -31,7 +30,6 @@ metadata:
   name: payment
   labels:
     app: payment
-  namespace: test 
 spec:
   ports:
   - port: 80

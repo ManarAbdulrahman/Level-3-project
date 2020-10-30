@@ -4,7 +4,6 @@ metadata:
   name: user
   labels:
     app: user
-  namespace: test
 spec:
   replicas: 1
   selector:
@@ -34,7 +33,6 @@ metadata:
   name: user
   labels:
     app: user
-  namespace: test
 spec:
   ports:
   - port: 80 

@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: cart-p 
+  name: cart-p
 spec:
   resources:
     - name: level-3-project 
@@ -14,7 +14,7 @@ spec:
         inputs: 
         - name: level-3-project
           resource: level-3-project
-    - name: deploy
+    - name: deploy-to-test
       runAfter: ["build"]
       taskRef:
         name: deploy-cart-t 
@@ -22,3 +22,19 @@ spec:
         inputs: 
         - name: level-3-project
           resource: level-3-project
+    - name: testing 
+      runAfter: ["deploy-to-test"]
+      taskRef:
+        name: cart-test
+      resources:
+        inputs:
+        - name: level-3-project
+          resource: level-3-project
+    - name: production
+      runAfter: ["testing"]
+      taskRef:
+        name: production
+      resources:
+        inputs: 
+        - name: level-3-project
+          resource: level-3-project 

@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: user-tr
-  namespace: test
 spec:
   serviceAccountName: user-sa
   taskRef:

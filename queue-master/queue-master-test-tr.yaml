@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: payment-tr
+  name: queue-master-tr
 spec:
-  serviceAccountName: payment-sa
+  serviceAccountName: queue-master-sa
   taskRef:
-    name: sock-payment-t
+    name: queue-master-test
   resources:
     inputs:
     - name: level-3-project
