@@ -3,7 +3,7 @@ kind: TaskRun
 metadata:
   name: e2e-test-tr
 spec:
-  serviceAccountName: e2e-js-test-sa
+  serviceAccountName: e2e-test-sa 
   taskRef:
     name: e2e-test-t
   resources:
