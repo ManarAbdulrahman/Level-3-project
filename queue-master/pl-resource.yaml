@@ -1,7 +1,11 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
+<<<<<<< HEAD
   name: level-3-project 
+=======
+  name: sock-queue-master
+>>>>>>> 65764165a04d8104e500379cfe7cd9eece338af6
 spec:
   type: git
   params:
