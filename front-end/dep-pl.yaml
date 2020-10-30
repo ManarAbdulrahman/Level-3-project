@@ -15,7 +15,7 @@ spec:
         - name: level-3-project
           resource: level-3-project
     - name: deploy-to-test
-      runAfter: ["build-to-test"]
+      runAfter: ["build"]
       taskRef:
         name: deploy-front-end-t 
       resources:
