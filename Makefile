@@ -64,7 +64,7 @@ test:
 	kubectl apply -f e2e-js-test/task.yaml -f e2e-js-test/tr.yaml -n test 
 	kubectl apply -f production.yaml -f ingress.yaml -n test
 prod:
-	kubectl apply -f production.yaml -f ingress.yaml -n test
+	kubectl apply -f production.yaml -f ingress.yaml -n prod
 
 front-end-test:
 	kubectl apply -f front-end/sa.yaml -f front-end/pl-resource.yaml -f front-end/task.yaml  -f front-end/dep-task.yaml -f front-end/front-end-test-t.yaml -f front-end/dep-pl.yaml -f front-end/dep-pr.yaml -n test
