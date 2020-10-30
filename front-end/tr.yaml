@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: front-end-tr
-  namespace: test
 spec:
   serviceAccountName: front-end-sa
   taskRef:
