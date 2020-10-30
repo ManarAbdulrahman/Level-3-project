@@ -20,6 +20,8 @@ spec:
         ports:
         - name: mongo
           containerPort: 27017
+        securityContext:
+          runAsUser: 0
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
@@ -38,8 +40,8 @@ metadata:
     app: carts-db
 spec:
   ports:
+    # the port that this service should serve on
   - port: 27017
     targetPort: 27017
   selector:
     app: carts-db
-
