@@ -6,7 +6,7 @@ RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
 RUN npm install -save mongodb chrome-remote-interface chrome-launcher mocha express request body-parser sinon chai chai-http http
 
-RUN npm install -g casperjs mocha jscodeshift
+RUN npm install -g casperjs jscodeshift
 
 WORKDIR /tmp
 RUN curl -Ls https://github.com/dustinblackman/phantomized/releases/download/2.1.1/dockerized-phantomjs.tar.gz | tar xz &&\
