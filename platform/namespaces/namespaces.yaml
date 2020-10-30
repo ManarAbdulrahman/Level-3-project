@@ -37,10 +37,10 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: logging
+  name: elf 
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: monitoring
+  name: monitor
 ---
