@@ -3,17 +3,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end
+  labels:
+    app: front-end
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k: front-end
+      app: front-end
   template:
     metadata:
       labels:
-        k: front-end
-      annotations:
-        prometheus.io/scrape: "true"
+        app: front-end
     spec:
       containers:
       - name: front-end
@@ -27,11 +27,11 @@ kind: Service
 metadata:
   name: front-end
   labels:
-    k: front-end
+    app: front-end
 spec:
   type: LoadBalancer
   ports:
   - port: 80
     targetPort: 8079
   selector:
-    k: front-end
+    app: front-end

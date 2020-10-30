@@ -2,27 +2,45 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sock-cart
+  name: carts
   labels:
-    app: sock-cart
+    app: carts
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sock-cart
+      app: carts
   template:
     metadata:
       labels:
-        app: sock-cart
+        app: carts
     spec:
       containers:
-      - name: cart
-        image: manarabdulrahman/sock-cart 
+      - name: carts
+        image: rayanah/carts
         ports:
-         - containerPort: 80
+        - containerPort: 80
+        env:
+         - name: JAVA_OPTS
+           value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+#        securityContext:
+#          runAsUser: 0
+#          readOnlyRootFilesystem: true
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
+#        livenessProbe:
+#          httpGet:
+#            path: /health
+#            port: 80
+#          initialDelaySeconds: 300
+#          periodSeconds: 3
+#        readinessProbe:
+#          httpGet:
+#            path: /health
+#            port: 80
+#          initialDelaySeconds: 180
+#          periodSeconds: 3
       volumes:
         - name: tmp-volume
           emptyDir:
@@ -33,13 +51,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sock-cart
+  name: carts
   labels:
-    app: sock-cart
+    app: carts
 spec:
   ports:
-    # the port that this service should serve on
   - port: 80
     targetPort: 80
   selector:
-    app: sock-cart
+    app: carts

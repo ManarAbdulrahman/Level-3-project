@@ -13,7 +13,7 @@ spec:
       script: |
         #!/usr/bin/env bash 
         echo "Sorry for keeping you waiting, but we need to wait to start the test :D"
-        sleep 100
+        sleep 180
         echo "Thank you for your patience!"
     - name: testing 
       image: manarabdulrahman/e2e-test 
