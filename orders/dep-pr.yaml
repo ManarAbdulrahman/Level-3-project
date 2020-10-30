@@ -5,7 +5,7 @@ metadata:
 spec:
   pipelineRef:
     name: orders-p 
-  serviceAccountName: sock-shop-sa
+  serviceAccountName: orders-sa
   resources:
     - name: level-3-project
       resourceRef:
