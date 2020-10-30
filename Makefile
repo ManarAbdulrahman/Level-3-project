@@ -24,23 +24,14 @@ docker:
 	docker login
 	kubectl create secret generic docker-hub-creds --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json --type=kubernetes.io/dockerconfigjson -n test
 	kubectl create secret generic docker-hub-creds --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json --type=kubernetes.io/dockerconfigjson -n prod
-init: logs repos namespaces 
+
+init: logs namespaces 
 platform: install-cicd install-ingress install-logging install-monitoring
 
 logs:
 	touch output.log
 	rm -f output.log
 	touch output.log
-
-repos:
-	helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-	helm repo add hashicorp https://helm.releases.hashicorp.com
-	helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-	helm repo add grafana https://grafana.github.io/helm-charts
-	helm repo add elastic https://helm.elastic.co
-	helm repo add fluent https://fluent.github.io/helm-charts
-	helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
-	helm repo update
 
 namespaces:
 	kubectl apply -f platform/namespaces
