@@ -109,9 +109,9 @@ users-prod:
 	Kubectl apply -f user/sa.yaml -f user/pl-resource.yaml -f user/dep-task.yaml -f user/dep-tr.yaml -n prod
 
 queue-master-test:
-	kubectl apply -f queue-master/sa.yaml -f queue-master/pl-resource.yaml -f queue-master/task.yaml  -f queue-master/dep-task.yaml -f queue-master/queue-master-test.t.yaml -f queue-master/dep-pl.yaml -f queue-master/dep-pr.yaml -n test
+	kubectl apply -f queue-master/sa.yaml -f queue-master/pl-resource.yaml -f queue-master/task.yaml  -f queue-master/dep-task.yaml -f queue-master/queue-master-test-t.yaml -f queue-master/dep-pl.yaml -f queue-master/dep-pr.yaml -n test
 
-master-queue-prod:
+queue-master-prod:
 	Kubectl apply -f queue/sa.yaml -f queue-master/pl-resource.yaml -f queue-master/dep-task.yaml -f queue-master/dep-tr.yaml -n prod
 
 install-ingress:
