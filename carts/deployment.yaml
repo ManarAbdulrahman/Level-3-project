@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sock-cart-t
+  name: sock-cart
   labels:
-    app: carts
+    app: sock-cart
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: carts
+      app: sock-cart
   template:
     metadata:
       labels:
-        app: carts
+        app: sock-cart
     spec:
       containers:
-      - name: carts
+      - name: cart
         image: manarabdulrahman/sock-cart 
         ports:
          - containerPort: 80
@@ -33,13 +33,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: carts
+  name: sock-cart
   labels:
-    app: carts
+    app: sock-cart
 spec:
   ports:
     # the port that this service should serve on
   - port: 80
     targetPort: 80
   selector:
-    app: carts
+    app: sock-cart

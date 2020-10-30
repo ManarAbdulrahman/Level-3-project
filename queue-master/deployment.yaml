@@ -4,7 +4,6 @@ metadata:
   name: queue-master
   labels:
     app: queue-master
-  namespace: test
 spec:
   replicas: 1
   selector:

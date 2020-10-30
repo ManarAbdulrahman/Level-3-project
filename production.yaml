@@ -7,17 +7,79 @@ spec:
     inputs:
     - name: level-3-project
       type: git
+  params:
+    - name: pathToDBYamlFilecart
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/carts/db-deployment.yaml
+    - name: pathToYamlFilecart
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/carts/deployment.yaml
+    - name: pathToDBYamlFilecat
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/catalogue/db-deployment.yaml
+    - name: pathToYamlFilecat
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/catalogue/deployment.yaml
+    - name: pathToYamlFilefront
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/front-end/deployment.yaml
+    - name: pathToDBYamlFileorder
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/orders/db-deployment.yaml
+    - name: pathToYamlFileorder
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/orders/deployment.yaml
+    - name: pathToYamlFilepayment
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/payment/deployment.yaml
+    - name: pathToYamlFilequeue
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/queue-master/deployment.yaml
+    - name: pathToRMQYamlFile
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/queue-master/rmq-deployment.yaml
+    - name: pathToYamlFileshipping
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/shipping/deployment.yaml
+    - name: pathToDBYamlFileusers
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/user/db-deployment.yaml
+    - name: pathToYamlFileusers
+      description: The path to the yaml file to deploy within the git source
+      default: level-3-project/user/deployment.yaml
+    - name: namespace
+      default: prod
   steps:
-    - name: production 
-      image: ubuntu 
-      script: |
-        #!/bin/sh
-        make fron-end-prod  
-        make cart-prod
-        make catalogue-prod
-        make orders-prod
-        make shipping-prod
-        make payment-prod
-        make queue-master-prod
-        make users-prod
-         
+    - name: run-kubectl
+      image: lachlanevenson/k8s-kubectl
+      command: ["kubectl"]
+      args:
+        - "apply"
+        - "-f"
+        - "$(params.pathToDBYamlFilecart)"
+        - "-f"
+        - "$(params.pathToYamlFilecart)"
+        - "-f"
+        - "$(params.pathToDBYamlFilecat)"
+        - "-f"
+        - "$(params.pathToYamlFilecat)"         
+        - "-f"
+        - "$(params.pathToYamlFilefront)"
+        - "-f"
+        - "$(params.pathToDBYamlFileorder)"
+        - "-f"
+        - "$(params.pathToYamlFileorder)"
+        - "-f"
+        - "$(params.pathToYamlFilepayment)"
+        - "-f"
+        - "$(params.pathToYamlFilequeue)"
+        - "-f"
+        - "$(params.pathToRMQYamlFile)"
+        - "-f"
+        - "$(params.pathToYamlFileshipping)"
+        - "-f"
+        - "$(params.pathToDBYamlFileusers)"
+        - "-f"
+        - "$(params.pathToYamlFileusers)"
+        - "-n"
+        - "$(params.namespace)"        
