@@ -23,8 +23,8 @@ spec:
         - name: level-3-project
           resource: level-3-project
     - name: testing 
-     runAfter: ["deploy-to-test"]
-     taskRef:
+      runAfter: ["deploy-to-test"]
+      taskRef:
         name: orders-test
       resources:
         inputs:

@@ -1,6 +1,6 @@
 .PHONY: up down init cluster-up install uninstall logs repos namespaces cluster-down clean provision
 
-up: cluster-up init docker platform test prod tests 
+up: cluster-up init docker platform test prod tests monitoring-logging
 
 down: cluster-down
 
@@ -26,8 +26,8 @@ docker:
 	kubectl create secret generic docker-hub-creds --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json --type=kubernetes.io/dockerconfigjson -n prod
 
 init: logs namespaces 
-platform: install-cicd install-ingress install-logging install-monitoring
-
+platform: install-cicd install-ingress 
+monitoring-logging: install-logging install-monitoring
 logs:
 	touch output.log
 	rm -f output.log
@@ -62,8 +62,9 @@ tests: front-end-test cart-test catalogue-test orders-test payment-test shipping
 
 test:
 	kubectl apply -f e2e-js-test/task.yaml -f e2e-js-test/tr.yaml -n test 
+	kubectl apply -f production.yaml -f ingress.yaml -n test
 prod:
-	kubectl apply -f production.yaml -f ingress.yaml -n prod
+	kubectl apply -f production.yaml -f ingress.yaml -n test
 
 front-end-test:
 	kubectl apply -f front-end/sa.yaml -f front-end/pl-resource.yaml -f front-end/task.yaml  -f front-end/dep-task.yaml -f front-end/front-end-test-t.yaml -f front-end/dep-pl.yaml -f front-end/dep-pr.yaml -n test
