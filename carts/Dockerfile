@@ -23,3 +23,4 @@ LABEL org.label-schema.vendor="Manar" \
   org.label-schema.vcs-ref="${COMMIT}" \
   org.label-schema.schema-version="1.0"
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./app.jar", "--port=80"]
+EXPOSE 80
