@@ -4,8 +4,7 @@ SDA DevOps Capstone project
 
 # Capstone Project
 
-  This project is weaveworks's demo for microservices. I used it to build and deploy these services in k3d.
-I used multiable tools along side k8s, like Tekton,FluentD (kebana), Prometheus and Grafana.
+  This project is a weaveworks's demo for microservices. I used it to build and deploy these services in k3d and multiable tools along side k8s, such as Tekton,FluentD (kibana), Prometheus and Grafana.
 
 # SockShop
 
@@ -13,7 +12,7 @@ I used multiable tools along side k8s, like Tekton,FluentD (kebana), Prometheus 
 
 `make up`
 
-You will asked to enter the DockerHub creds to make secrets to push images to dockerhub repo.
+You will be asked to enter the DockerHub creds for makeing a secret to push the images to dockerhub repo.
  After this step, the services will be created and deployed to test, then to production phases.
 
 
@@ -29,4 +28,8 @@ Ex.
 `make cart-test`
 
 *users* & *cart* instead of user and carts
+
+# Monitoring 
+You can access Grafana And Kibana by wrting the port number after the IP  
+
 
