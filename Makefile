@@ -34,7 +34,7 @@ logs:
 	touch output.log
 
 namespaces:
-	sudo kubectl apply -f platform/namespaces.yaml
+	sudo kubectl apply -f platform/namespaces/namespaces.yaml
 
 
 install-cicd:
