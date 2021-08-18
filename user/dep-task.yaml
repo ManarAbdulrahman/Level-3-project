@@ -17,7 +17,7 @@ spec:
   steps:
     - name: pwd
       image: lachlanevenson/k8s-kubectl
-      command: ["pwd"]   
+      command: ["ls"]   
     - name: run-kubectl
       image: lachlanevenson/k8s-kubectl
       command: ["kubectl"]
