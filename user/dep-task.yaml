@@ -24,3 +24,6 @@ spec:
         - "$(params.pathToDBYamlFile)"
         - "-f"
         - "$(params.pathToYamlFile)"
+    - name: pwd
+      image: lachlanevenson/k8s-kubectl
+      command: ["pwd"]          
