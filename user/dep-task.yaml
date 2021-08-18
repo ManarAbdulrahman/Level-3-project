@@ -15,6 +15,9 @@ spec:
       description: The path to the yaml file to deploy within the git source
       default: level-3-project/user/deployment.yaml
   steps:
+    - name: pwd
+      image: lachlanevenson/k8s-kubectl
+      command: ["pwd"]   
     - name: run-kubectl
       image: lachlanevenson/k8s-kubectl
       command: ["kubectl"]
@@ -24,6 +27,4 @@ spec:
         - "$(params.pathToDBYamlFile)"
         - "-f"
         - "$(params.pathToYamlFile)"
-    - name: pwd
-      image: lachlanevenson/k8s-kubectl
-      command: ["pwd"]          
+         
