@@ -4,7 +4,7 @@ metadata:
   name: sock-shop-sa
 ---
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sock-shop-r
 rules:
@@ -13,7 +13,7 @@ rules:
   verbs: ["*"]
 ---
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sock-shop-rb
 roleRef:
