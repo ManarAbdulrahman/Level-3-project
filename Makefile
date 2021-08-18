@@ -47,7 +47,7 @@ install-cicd:
                          --from-literal=size=10Gi \
                          --from-literal=storageClassName=manual \
                          -o yaml -n tekton-pipelines \
-                         --dry-run=client | kubectl replace -f -
+                         --dry-run=client | sudo kubectl replace -f -
 	sudo apt update
 	sudo apt install -y gnupg
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3EFE0E0A2F2F60AA
