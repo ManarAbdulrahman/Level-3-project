@@ -10,10 +10,10 @@ spec:
   params:
     - name: pathToDBYamlFile
       description: The path to the yaml file to deploy within the git source
-      default: level-3-project/orders/db-deployment.yaml
+      default: /workspace/level-3-project/orders/db-deployment.yaml
     - name: pathToYamlFile
       description: The path to the yaml file to deploy within the git source
-      default: level-3-project/orders/deployment.yaml
+      default: l/workspace/evel-3-project/orders/deployment.yaml
   steps:
     - name: run-kubectl
       image: lachlanevenson/k8s-kubectl

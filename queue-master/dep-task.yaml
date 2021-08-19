@@ -10,10 +10,10 @@ spec:
   params:
     - name: pathToYamlFile
       description: The path to the yaml file to deploy within the git source
-      default: level-3-project/queue-master/deployment.yaml
+      default: /workspace/level-3-project/queue-master/deployment.yaml
     - name: pathToRMQYamlFile
       description: The path to the yaml file to deploy within the git source
-      default: level-3-project/queue-master/rmq-deployment.yaml
+      default: /workspace/level-3-project/queue-master/rmq-deployment.yaml
   steps:
     - name: run-kubectl
       image: lachlanevenson/k8s-kubectl

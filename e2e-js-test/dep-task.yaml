@@ -12,5 +12,5 @@ spec:
       image: manarabdulrahman/e2e-test 
       script: |
         #!/bin/sh
-        cd level-3-project/e2e-js-test
+        cd /workspace/level-3-project/e2e-js-test
         source runner.sh
