@@ -19,7 +19,7 @@ spec:
       image: manarabdulrahman/e2e-test 
       script: |
         #!/bin/sh
-        cd level-3-project/e2e-js-test
+        cd /workspace/level-3-project/e2e-js-test
         rm -rf node_modules package-lock.json
         npm install -g npm@7.0.6
         npm init -y
