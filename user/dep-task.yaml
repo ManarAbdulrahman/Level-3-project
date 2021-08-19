@@ -10,10 +10,10 @@ spec:
   params:
     - name: pathToDBYamlFile
       description: The path to the yaml file to deploy within the git source
-      default: level-3-project/user/db-deployment.yaml
+      default:  /workspace/level-3-project/user/db-deployment.yaml
     - name: pathToYamlFile
       description: The path to the yaml file to deploy within the git source
-      default: level-3-project/user/deployment.yaml
+      default:  /workspace/level-3-project/user/deployment.yaml
   steps:
   - image: ubuntu # contains bash
     script: |
