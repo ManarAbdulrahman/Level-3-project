@@ -15,12 +15,12 @@ spec:
       description: The path to the yaml file to deploy within the git source
       default:  /workspace/level-3-project/user/deployment.yaml
   steps:
-  - image: ubuntu # contains bash
-    script: |
-      #!/usr/bin/env bash
-      pwd
-      whoami
-      ls 
+    - image: ubuntu # contains bash
+      script: |
+        #!/usr/bin/env bash
+        pwd
+        whoami
+        ls 
     - name: run-kubectl
       image: lachlanevenson/k8s-kubectl
       command: ["kubectl"]
