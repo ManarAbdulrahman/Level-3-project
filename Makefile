@@ -22,8 +22,8 @@ cluster-up:
 
 docker:
 	sudo docker login
-	sudo kubectl create secret generic docker-hub-creds --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json --type=kubernetes.io/dockerconfigjson -n test
-	sudo kubectl create secret generic docker-hub-creds --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json --type=kubernetes.io/dockerconfigjson -n prod
+	sudo kubectl create secret generic docker-hub-creds --from-file=.dockerconfigjson=/root/.docker/config.json --type=kubernetes.io/dockerconfigjson -n test
+	sudo kubectl create secret generic docker-hub-creds --from-file=.dockerconfigjson=/root/.docker/config.json --type=kubernetes.io/dockerconfigjson -n prod
 
 init: logs namespaces 
 platform: install-cicd install-ingress 
